@@ -5,18 +5,18 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_stack
+typedef struct s_node
 {
 	int n;
-	struct s_stack *prev;
-	struct s_stack *next;
+	struct s_node *prev;
+	struct s_node *next;
 }	t_stack;
 
-typedef struct s_adress
+typedef struct s_stack
 {
-	t_node	*head;
 	t_node	*tail;
-} t_adress;
+	t_node *head;
+} t_stack;
 
 // UTILS.C
 

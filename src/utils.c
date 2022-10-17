@@ -31,9 +31,6 @@ void	add_top(t_stack *a, int number)
 }
 
 
-
-
-
 /*
 int	ft_is_repeated(char **argv)
 {

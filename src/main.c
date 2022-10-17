@@ -2,22 +2,20 @@
 
 #include "../inc/push_swap.h"
 
-
-
 t_stack	populate_stack(int argc, char **argv)
 {
-	int a;
-	int b;
+	int i;
 
-	a = 1;
+	i = 1;
 	while (i < argc)
 	{	
-		add_top(a, ft_atoi(av[ac - i]));
+		add_top(&a, ft_atoi(argv[argc - i]));
 		i++;
 	}
+	return (a);
 }
 
-void	start_struct(t_stack a, t_stackc b)
+void	start_struct(t_stack *a, t_stack *b)
 {
 	a->head = NULL;
 	b->head = NULL;
@@ -25,7 +23,7 @@ void	start_struct(t_stack a, t_stackc b)
 	b->tail = NULL;
 }
 
-int main(int argc, int argv**)
+int main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
@@ -33,10 +31,6 @@ int main(int argc, int argv**)
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	start_struct(a, b);
-	a = populate_stack(argc, argv);
-
-
-
-
+	start_struct(&a, b);
+	a = populate_stack(a, argc, argv);
 }
