@@ -2,17 +2,17 @@
 
 #include "../inc/push_swap.h"
 
-t_stack	populate_stack(int argc, char **argv)
+void	populate_stack(t_stack *a ,int argc, char **argv)
 {
 	int i;
 
 	i = 1;
 	while (i < argc)
 	{	
-		add_top(&a, ft_atoi(argv[argc - i]));
+		add_top(a, ft_atoi(argv[argc - i]));
+		//ft_printf("Valor na interação %i depois add_top é %i\n", i, a->head->n);
 		i++;
 	}
-	return (a);
 }
 
 void	start_struct(t_stack *a, t_stack *b)
@@ -28,9 +28,9 @@ int main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 	// is_repeated(argv);
-	b = NULL;
 	if (argc < 2)
 		return (0);
-	start_struct(&a, b);
-	a = populate_stack(a, argc, argv);
+	start_struct(&a, &b);
+	populate_stack(&a, argc, argv);
+	swap_ab(&a, &b);
 }

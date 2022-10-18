@@ -2,63 +2,46 @@
 
 #include "../inc/push_swap.h"
 
-int	swap_a_b(t_d_list *list)
+void	swap(t_stack *list)
 {
-	if (swap_a(list) == 0 || swap_b(list) == 0)
-		return (0);
-	else
-		return (1);
+	t_node *aux;
+
+	aux = NULL;
+	if (list->head->next != NULL)
+	{
+		aux = list->head;
+		list->head = aux->next;
+		list->head->prev = NULL;
+		aux->next = list->head->next;
+		list->head->next = aux;
+		aux->prev = list->head;
+	}
 }
 
-int	swap_a(t_d_list *list)
+void	swap_a(t_stack *list)
 {
-	int temp;
-
-	if (ft_intlen(list->stack_a.content) < 2)
-		return (0);
-	temp = list->stack_a.content[1];
-	list->stack_a.content[1] = list->stack_a.content[0];
-	list->stack_a.content[0] = temp;
-	return (1);
+	if (list->head != list->tail) // se a lista não tiver só 2 elementos
+	{
+		swap(list);
+		ft_printf("sa\n");
+	}
 }
 
-int	swap_b(t_d_list *list)
+void	swap_b(t_stack *list)
 {
-	int temp;
-
-	if (ft_intlen(list->stack_b.content) < 2)
-		return (0);
-	temp = list->stack_a.content[1];
-	list->stack_b.content[1] = list->stack_b.content[0];
-	list->stack_b.content[0] = temp;
-	return (1);
+	if (list->head != list->tail) // se a lista não tiver só 2 elementos
+	{
+		swap(list);
+		ft_printf("sb\n");
+	}
 }
 
-int	ft_intlen(int *array)
+void	swap_ab(t_stack *a, t_stack *b)
 {
-	int i;
-
-	i = 0;
-	while(array[i])
-		i++;
-	return (i);
+	if (a->head != a->tail || b->head != b->tail)
+	{
+		swap(a);
+		swap(b);
+		ft_printf("ss\n");
+	}
 }
-
-
-int main()
-{
-	t_d_list original;
-	t_d_list *list;
-	list = &original;
-
-	list->stack_a.content[0] = 1; 
-	list->stack_a.content[1] = 2;
-	list->stack_a.content[2] = 4;
-	list->stack_a.content[3] = 5; 
-
-	swap_a(list);
-}
-
-
-
-

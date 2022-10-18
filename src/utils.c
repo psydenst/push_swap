@@ -18,18 +18,17 @@ void	add_top(t_stack *a, int number)
 	t_node *new;
 
 	if (a->head == NULL && a->tail == NULL)
-		empty_stack(a, value);
+		empty_stack(a, number);
 	else
 	{
 		new = (t_node *)malloc(sizeof(t_node));
-		new->n = value;
+		new->n = number;
 		new->prev = NULL;
 		new->next = a->head;
 		a->head->prev = new;
 		a->head = new;
 	}
 }
-
 
 /*
 int	ft_is_repeated(char **argv)
