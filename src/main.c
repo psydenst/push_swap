@@ -32,5 +32,13 @@ int main(int argc, char **argv)
 		return (0);
 	start_struct(&a, &b);
 	populate_stack(&a, argc, argv);
-	swap_ab(&a, &b);
+// SWAP_TEST 
+/*	swap_a(&a);
+	swap_b(&b);
+	swap_ab(&a, &b); */
+// PUSH_TEST
+	push_a(&a);
+	push_b(&b);
+	
+
 }

@@ -40,8 +40,8 @@ void	swap_ab(t_stack *a, t_stack *b)
 {
 	if (a->head != a->tail || b->head != b->tail)
 	{
-		swap(a);
-		swap(b);
+		swap_a(a);
+		swap_b(b);
 		ft_printf("ss\n");
 	}
 }
