@@ -22,17 +22,30 @@ typedef struct s_stack
 
 void	add_top(t_stack *a, int number);
 
-// OPERATIONS_SWAP.C
+// OPERATION_SWAP.C
 
 void    swap(t_stack *list);
 void    swap_a(t_stack *list);
 void    swap_b(t_stack *list);
 void    swap_ab(t_stack *a, t_stack *b);
 
-// OPERATIONS_PUSH.C
-/*
-int     push_a_b(t_d_list *list);
-int     push_a(t_d_list *list);
-int     push_b(t_d_list *list);
-*/
+// OPERATION_PUSH.C
+
+void	push(t_stack *src, t_stack *dst);
+void	push_a(t_stack *b, t_stack *a);
+void	push_b(t_stack *a, t_stack *b);
+
+// OPERATION_ROTATE.C
+
+void    rotate(t_stack *lst);
+void    rotate_a(t_stack *a);
+void    rotate_b(t_stack *b);
+void    rotate_both(t_stack *a, t_stack *b);
+
+// OPERATIONS_ROTATE_REV.C
+void    rev_rotate(t_stack *lst);
+void    reverse_a(t_stack *a);
+void    reverse_b(t_stack *b);
+void    rev_rotate_both(t_stack *a, t_stack *b);
+
 #endif

@@ -2,7 +2,7 @@
 
 #include "../inc/push_swap.h"
 
-int	push(t_stack *src, t_stack *dst)
+void	push(t_stack *src, t_stack *dst)
 {
 	t_node *aux;
 
@@ -22,7 +22,7 @@ int	push(t_stack *src, t_stack *dst)
 	}
 }
 
-int	push_a(t_stack *b, t_stack *a)
+void	push_a(t_stack *b, t_stack *a)
 {
 	if (b->head != NULL)
 	{
@@ -31,7 +31,7 @@ int	push_a(t_stack *b, t_stack *a)
 	}
 }
 
-int	push_b(t_d_list *list)
+void	push_b(t_stack *a, t_stack *b)
 {
 	if (a->head != NULL)
 	{

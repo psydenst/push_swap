@@ -1,7 +1,9 @@
 SRC =	src/main.c \
 	src/operation_push.c \
 	src/operation_swap.c \
-	src/utils.c
+	src/utils.c \
+	src/operation_rotate.c \
+ 	src/operation_rotate_rev.c	
 
 OBJ = ${SRC:.c=.o}
 
