@@ -21,6 +21,8 @@ typedef struct s_stack
 // UTILS.C
 
 void	add_top(t_stack *a, int number);
+void    printf_stack(t_stack *a);
+void	printf_both(t_stack *a, t_stack *b);
 
 // OPERATION_SWAP.C
 

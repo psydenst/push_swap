@@ -34,11 +34,32 @@ int main(int argc, char **argv)
 	populate_stack(&a, argc, argv);
 // SWAP_TEST 
 	swap_a(&a);
-/*	swap_b(&b);
-	swap_ab(&a, &b); */
+	ft_printf("Valor de a após swap é:\n");
+	printf_stack(&a);
+	swap_b(&b);
+	ft_printf("Valor de b após swap é:\n");
+	printf_stack(&a);
+	swap_ab(&a, &b);
+	ft_printf("Valor de a e b após swap_ab é:\n");
+	printf_both(&a, &b);
 // PUSH_TEST
 	push_a(&b, &a);
+	ft_printf("Valor de a após push é:\n");
+	printf_stack(&a);
 	push_b(&a, &b);
-	
+	ft_printf("Valor de b após push é:\n");
+	printf_stack(&b);
+// ROTATE_TEST
+	rotate_a(&a);
+	ft_printf("Valor de a após rotate é:\n");
+	printf_stack(&a);
+	rotate_b(&b);
+	ft_printf("Valor de b após rotate é:\n");
+	printf_stack(&a);	
+	rotate_both(&a, &b);
+	ft_printf("Valor de a e de b após rotate_both é:\n");
+	printf_both(&a, &b);
+
+// REVERSE_TEST
 
 }
