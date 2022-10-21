@@ -7,7 +7,8 @@
 
 typedef struct s_node
 {
-	int n;
+	int 	n;
+	int		*reference;
 	struct s_node *prev;
 	struct s_node *next;
 }	t_node;

@@ -27,11 +27,17 @@ int main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
+	int	*reference;
 	// is_repeated(argv);
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b);
 	populate_stack(&a, argc, argv);
+	reference = create_reference(argc, argv, reference);
+	reference = sort_reference(reference);
+	compare_reference(&reference);
+	free(reference);
+
 // SWAP_TEST 
 	swap_a(&a);
 	ft_printf("Valor de a após swap é:\n");
@@ -61,5 +67,14 @@ int main(int argc, char **argv)
 	printf_both(&a, &b);
 
 // REVERSE_TEST
+	reverse_a(&a);
+	ft_printf("Valor de a após reverse_rotate é:\n");
+	printf_stack(&a);
+	reverse_b(&b);
+	ft_printf("Valor de b após reverse_rotate é:\n");
+	printf_stack(&b);
+	rev_rotate_both(&a, &b);
+	ft_printf("Valor de a e b após reverse rotate é:\n");
+	printf_both(&a, &b);
 
 }
