@@ -16,7 +16,7 @@ void	populate_stack(t_stack *a ,int argc, char **argv)
 }
 
 void	start_struct(t_stack *a, t_stack *b)
-{
+{	
 	a->head = NULL;
 	b->head = NULL;
 	a->tail = NULL;
@@ -28,16 +28,23 @@ int main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 	int	*reference;
+
+	reference = NULL;
 	// is_repeated(argv);
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b);
 	populate_stack(&a, argc, argv);
 	reference = create_reference(argc, argv, reference);
-	reference = sort_reference(reference);
-	compare_reference(&reference);
+	int i = 0;
+	while (i < argc - 1)
+	{
+		ft_printf("%i\n", reference[i]);
+		i++;
+	}
+	//compare_reference(&reference);
 	free(reference);
-
+/*
 // SWAP_TEST 
 	swap_a(&a);
 	ft_printf("Valor de a após swap é:\n");
@@ -76,5 +83,5 @@ int main(int argc, char **argv)
 	rev_rotate_both(&a, &b);
 	ft_printf("Valor de a e b após reverse rotate é:\n");
 	printf_both(&a, &b);
-
+*/
 }

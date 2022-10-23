@@ -46,9 +46,14 @@ void    rotate_b(t_stack *b);
 void    rotate_both(t_stack *a, t_stack *b);
 
 // OPERATIONS_ROTATE_REV.C
+
 void    rev_rotate(t_stack *lst);
 void    reverse_a(t_stack *a);
 void    reverse_b(t_stack *b);
 void    rev_rotate_both(t_stack *a, t_stack *b);
+
+// CREATE_REFERENCE.C
+int	*create_reference(int argc, char *argv[], int *reference);
+int	*sort_reference(int argc, int *reference);
 
 #endif

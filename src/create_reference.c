@@ -18,6 +18,7 @@ int	*create_reference(int argc, char *argv[], int *reference)
 		z++;
 		index++;
 	}
+	reference = sort_reference(argc, reference);
 	return (reference);
 }
 
@@ -47,17 +48,17 @@ int *sort_reference(int argc, int *reference)
 	return (reference);
 }
 
-
+/*
 int main(int argc, char *argv[])
 {
 	int i = 0;
-	int *reference;
+	int *reference = NULL;
 	reference = create_reference(argc, argv, reference);
-	reference = sort_reference(argc, reference);
+	//reference = sort_reference(argc, reference);
 	while (reference[i])
 	{
 		printf("%i\n", reference[i]);
 		i++;
 	}
 	return (0);
-}
+} */

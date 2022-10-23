@@ -3,7 +3,8 @@ SRC =	src/main.c \
 	src/operation_swap.c \
 	src/utils.c \
 	src/operation_rotate.c \
- 	src/operation_rotate_rev.c	
+ 	src/operation_rotate_rev.c \
+	src/create_reference.c \
 
 OBJ = ${SRC:.c=.o}
 
@@ -24,7 +25,7 @@ all: $(NAME)
 $(NAME): ${OBJS}
 	make -C ./libft
 	cp libft/libft.a ${NAME}
-	${CC} ${CFLAGS} ${INCLUDE} ${LIBFT} ${SRC} -o ${NAME}
+	${CC} ${CFLAGS} -g ${INCLUDE} ${LIBFT} ${SRC} -o ${NAME}
 
 clean: 
 	make clean -C ./libft

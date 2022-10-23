@@ -50,14 +50,14 @@ void printf_both(t_stack *a, t_stack *b)
   t_node *a_start;
   t_node *b_start;
 
-  a_start = A->head;
-  b_start = B->head;
-  printf("\n");
+  a_start = a->head;
+  b_start = b->head;
+  ft_printf("\n");
 	while (a_start != NULL || b_start != NULL) 
 	{
     		if (a_start != NULL) 
 		{
-      			ft_printf("%d\t", a_start->n);a
+      			ft_printf("%d\t", a_start->n);
       			a_start = a_start->next;    
 		} 
 		else
