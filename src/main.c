@@ -15,35 +15,42 @@ void	populate_stack(t_stack *a ,int argc, char **argv)
 	}
 }
 
-void	start_struct(t_stack *a, t_stack *b)
+void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
 {	
 	a->head = NULL;
 	b->head = NULL;
 	a->tail = NULL;
 	b->tail = NULL;
+	data->argc = argc;
 }
 
 int main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	int	*reference;
+	t_data	data;
 
-	reference = NULL;
-	// is_repeated(argv);
+	data.reference = NULL;
 	if (argc < 2)
 		return (0);
-	start_struct(&a, &b);
+	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, argc, argv);
-	reference = create_reference(argc, argv, reference);
-	int i = 0;
+	data.reference = create_reference(argc, argv, data.reference);
+	simplifly_numbers(a.head, data.reference);
+	base_2(&head, &data);
+	while(a.head)
+	{
+		ft_printf("%i\n", a.head->simple);
+		a.head = a.head->next;
+	}
+	/*int i = 0;
 	while (i < argc - 1)
 	{
 		ft_printf("%i\n", reference[i]);
 		i++;
 	}
 	//compare_reference(&reference);
-	free(reference);
+	free(reference); */
 /*
 // SWAP_TEST 
 	swap_a(&a);

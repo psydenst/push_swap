@@ -7,11 +7,17 @@
 
 typedef struct s_node
 {
-	int 	n;
-	int		*reference;
-	struct s_node *prev;
-	struct s_node *next;
+	int		n;
+	struct s_node	*prev;
+	struct s_node	*next;
+	int		simple;
 }	t_node;
+
+typedef	struct	s_data
+{
+	int	argc;
+	int	*reference;
+} t_data;
 
 typedef struct s_stack
 {
@@ -55,5 +61,8 @@ void    rev_rotate_both(t_stack *a, t_stack *b);
 // CREATE_REFERENCE.C
 int	*create_reference(int argc, char *argv[], int *reference);
 int	*sort_reference(int argc, int *reference);
+
+// RADIX.C
+void    simplifly_numbers(t_node *head, int *reference);
 
 #endif

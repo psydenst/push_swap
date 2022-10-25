@@ -75,6 +75,17 @@ void printf_both(t_stack *a, t_stack *b)
   ft_printf("\n");
 }
 
+int	ft_array_len(int *array)
+{
+	int i;
+
+	i = 0;
+	while(array[i])
+		i++;
+	return (i)
+}
+
+
 /*
 int	ft_is_repeated(char **argv)
 {
