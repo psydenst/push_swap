@@ -17,6 +17,7 @@ typedef	struct	s_data
 {
 	int	argc;
 	int	*reference;
+	int	reference_max;
 } t_data;
 
 typedef struct s_stack
@@ -59,10 +60,13 @@ void    reverse_b(t_stack *b);
 void    rev_rotate_both(t_stack *a, t_stack *b);
 
 // CREATE_REFERENCE.C
+
 int	*create_reference(int argc, char *argv[], int *reference);
 int	*sort_reference(int argc, int *reference);
 
 // RADIX.C
+
 void    simplifly_numbers(t_node *head, int *reference);
+void    radix_sort(t_stack *a, t_stack *b);
 
 #endif

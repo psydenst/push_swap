@@ -35,14 +35,16 @@ int main(int argc, char **argv)
 		return (0);
 	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, argc, argv);
+	b.head = NULL;
 	data.reference = create_reference(argc, argv, data.reference);
 	simplifly_numbers(a.head, data.reference);
-	base_2(&head, &data);
-	while(a.head)
+	radix_sort(&a, &b);
+
+/*	while(a.head)
 	{
 		ft_printf("%i\n", a.head->simple);
 		a.head = a.head->next;
-	}
+	} */
 	/*int i = 0;
 	while (i < argc - 1)
 	{

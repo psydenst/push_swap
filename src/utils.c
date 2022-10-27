@@ -82,7 +82,7 @@ int	ft_array_len(int *array)
 	i = 0;
 	while(array[i])
 		i++;
-	return (i)
+	return (i);
 }
 
 
