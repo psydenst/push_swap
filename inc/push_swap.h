@@ -17,6 +17,7 @@ typedef	struct	s_data
 {
 	int	argc;
 	int	*reference;
+	char	**joker;
 	int	reference_max;
 } t_data;
 
