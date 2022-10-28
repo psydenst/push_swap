@@ -17,7 +17,6 @@ void	rev_rotate(t_stack *lst)
 		aux->prev = NULL;
 		lst->head = aux;
 	}
-
 }
 
 void	reverse_a(t_stack *a)
@@ -35,6 +34,7 @@ void	reverse_b(t_stack *b)
 	{
 		rev_rotate(b);
 		ft_printf("rrb");
+
 	}
 }
 

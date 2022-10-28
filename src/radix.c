@@ -25,7 +25,7 @@ void	simplifly_numbers(t_node *head, int *reference)
 	}
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b, int argc)
 {
 	int	offset;
 	int	bin_houses = 3; // Depois devo fazer um função que descubra o valor final dela.
@@ -33,23 +33,27 @@ void	radix_sort(t_stack *a, t_stack *b)
 	int j = 0;
 	joker = *a->head;
 	offset = 0;
+	int size;
+
+	size = 0;
 	while (offset < bin_houses)
 	{
 		a->head = &joker;
-		while (a->head) // O CÓDIGO QUEBRA SE TIVER ZERO
+		while (size < argc - 1) // O CÓDIGO QUEBRA SE TIVER ZERO
 		{
 			if ((a->head->simple >> offset & 1) == 0)
 			{
-				ft_printf("Bitwise termina em 0 em %i\n", a->head->simple);
+				//ft_printf("Bitwise termina em 0 em %i\n", a->head->simple);
 				push_b(a, b);
 			}
-			else
+			/*else
 			{
 				rotate_a(a);	
-				ft_printf("Bitwise termina em 1 em %i\n", a->head->simple);
-			}
-			printf_both(a, b);
+				//ft_printf("Bitwise termina em 1 em %i\n", a->head->simple);
+			} */
+			// printf_both(a, b);
 			a->head = a->head->next;
+			size++;
 		}
 		while (b->head)
 		{

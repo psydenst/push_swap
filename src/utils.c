@@ -38,11 +38,10 @@ void	printf_stack(t_stack *a)
 	start = a->head;
 	while (start != NULL)
 	{
-		ft_printf("%i", start->n);
+		ft_printf("%i\n", start->n);
 		start = start->next;
 	}
 	ft_printf("\n");
-
 }
 
 void printf_both(t_stack *a, t_stack *b)

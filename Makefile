@@ -5,7 +5,9 @@ SRC =	src/main.c \
 	src/operation_rotate.c \
  	src/operation_rotate_rev.c \
 	src/create_reference.c \
-	src/radix.c
+	src/radix.c \
+	src/small_sorts.c \
+
 OBJ = ${SRC:.c=.o}
 
 NAME = push_swap

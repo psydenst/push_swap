@@ -40,7 +40,7 @@ int *sort_reference(int argc, int *reference)
 				temp = reference[i];
 				reference[i] = reference[i + 1];
 				reference[i + 1] = temp;
-			}	
+			}
 			i++;
 		}
 		offset++;

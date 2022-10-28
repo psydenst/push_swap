@@ -30,22 +30,30 @@ int main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;
 
+	if (verification_main(argc, argv) == 0)
+			return(ft_printf("Error\n"));
 	data.reference = NULL;
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, argc, argv);
-	b.head = NULL;
+//	sort_two(&a);
+	sort_three(&a, &b);
+	
+//	printf_stack(&a);
+/*
 	data.reference = create_reference(argc, argv, data.reference);
+	ft_printf("Valor de %i\n", ft_array_len(data.reference));
 	simplifly_numbers(a.head, data.reference);
-	radix_sort(&a, &b);
-
-/*	while(a.head)
+*/
+//	radix_sort(&a, &b, argc);
+/*
+	while(a.head)
 	{
 		ft_printf("%i\n", a.head->simple);
 		a.head = a.head->next;
-	} */
-	/*int i = 0;
+	}
+	int i = 0;
 	while (i < argc - 1)
 	{
 		ft_printf("%i\n", reference[i]);
@@ -91,6 +99,5 @@ int main(int argc, char **argv)
 	printf_stack(&b);
 	rev_rotate_both(&a, &b);
 	ft_printf("Valor de a e b após reverse rotate é:\n");
-	printf_both(&a, &b);
-*/
+	printf_both(&a, &b); */
 }
