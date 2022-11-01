@@ -34,6 +34,10 @@ void    printf_stack(t_stack *a);
 void	printf_both(t_stack *a, t_stack *b);
 int		ft_array_len(int *array);
 
+// UTILS2.C
+
+char    *ft_strjoin_c(char *s1, char *s2, int c);
+
 // OPERATION_SWAP.C
 
 void    swap(t_stack *list);
@@ -67,13 +71,19 @@ int	*create_reference(int argc, char *argv[], int *reference);
 int	*sort_reference(int argc, int *reference);
 
 // SMALL_SORTS.C
+
 int sort_two(t_stack *a);
 int sort_three(t_stack *a, t_stack *b);
-
 
 // RADIX.C
 
 void    simplifly_numbers(t_node *head, int *reference);
 void    radix_sort(t_stack *a, t_stack *b, int argc);
+
+// VERIFICATION
+
+int     verification_main(int argc, char *argv[]);
+int     ft_is_unique(char **argv);
+// int     ft_strdigit(char **joker);
 
 #endif

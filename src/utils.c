@@ -83,19 +83,3 @@ int	ft_array_len(int *array)
 	return (i);
 }
 
-
-/*
-int	ft_is_repeated(char **argv)
-{
-	int i;
-
-	i = 0;
-	while(argv[i])
-	{
-	len = ft_strlen(argv[i]);
-	if (ft_strnstrn(argv[i], argv[i + 1], 
-
-	}	
-
-
-} */

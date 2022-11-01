@@ -26,19 +26,22 @@ void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
 
 int main(int argc, char **argv)
 {
-	t_stack	a;
+	/*t_stack	a;
 	t_stack	b;
-	t_data	data;
+	t_data	data;*/
 
 	if (verification_main(argc, argv) == 0)
-			return(ft_printf("Error\n"));
+			return(write(1, "Error\n", 6));
+	else
+		return (1);
+	/*
 	data.reference = NULL;
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
-	populate_stack(&a, argc, argv);
+	populate_stack(&a, argc, argv); */
 //	sort_two(&a);
-	sort_three(&a, &b);
+//	sort_three(&a, &b);
 	
 //	printf_stack(&a);
 /*

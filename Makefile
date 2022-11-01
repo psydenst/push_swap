@@ -7,6 +7,8 @@ SRC =	src/main.c \
 	src/create_reference.c \
 	src/radix.c \
 	src/small_sorts.c \
+	src/verification.c \
+	src/utils2.c
 
 OBJ = ${SRC:.c=.o}
 

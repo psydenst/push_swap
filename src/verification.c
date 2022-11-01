@@ -11,20 +11,26 @@
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <stdio.h>
 
 int	ft_strdigit(char **joker)
 {
 	int	i;
 	int	offset;
 
-	offset = 0;
+	offset = 1;
 	while (joker[offset])
 	{
 		i = 0;
+		if (joker[offset][i] == '-' || joker[offset][i] == '+')
+			i++;
+		if(joker[offset][i] == 0)
+			return (0);
 		while(joker[offset][i])
 		{
-			if ((ft_isdigit(joker[offset][i]) == 0))
-				return (0);
+			if ((joker[offset][i] < '0' || joker[offset][i] > '9') 
+			&& joker[offset][i] != ' ')
+					return (0);
 			i++;
 		}
 		offset++;
@@ -32,9 +38,21 @@ int	ft_strdigit(char **joker)
 	return (1);
 }
 
+/*
+int	ft_is_unique(char **argv)
+{
+	int	i;
+	int	j;
+	
+	i
+	
+	return (1);
+} */
+
+/*
 int ft_min_max(char **joker)
 {
-	/*
+
 	int	i;
 	int	offset;
 
@@ -49,49 +67,53 @@ int ft_min_max(char **joker)
 				i++;
 			}
 			offset++;
-		} */
+		}
 	ft_printf("%s\n", joker[0]);
 		return (1);
-}
+} */
 
-int ft_isunique(t_data *data)
+int	verification_main(int argc, char **argv)
 {
-	int i;
-	int k;
+	int	i;
+	//int k = 0;
+	char	*str;
+	char	**joker;
 
-	i = 0;
-	k = 1;
-	while (data->joker[i])
+	ft_printf("Valor de argc %i\n", argc);
+	if (ft_strdigit(argv) == 0)
+		return (0);
+	i = 1;
+	while (argv[i]) 
 	{
-		while (data->joker[i + k])
-		{
-			if (ft_atoi(data->joker[i]) == ft_atoi(data->joker[i + k]))
-				return (0);	
-			k++;
-		}
+		str= ft_strjoin_c(str,  argv[i], ' ');
 		i++;
 	}
-	return (1);
-}
+	ft_printf("Valor de str é : %s\n", str);
+	joker = ft_split(str, ' ');
 
-int	verification_main(int argc, char *argv[])
-{
-	t_data data;
-
-	data.joker = ft_split(argv[argc + 1], ' ');
-	while(argv[argc + 1])
+	int j = 0;
+//	ft_printf("%s\n%s\n%s\n", joker[0], joker[1], joker[2]);
+	while(joker[j])
 	{
-		if (ft_isunique(&data) == 0 || ft_strdigit(data.joker) == 0 || ft_min_max(data.joker) == 0) 
-		{
-			free(data.joker);
-			return (0);
-		}
-		argc++;
+		ft_printf("%s\n", joker[j]);
+		j++;
 	}
+/*
+	while(joker[k])
+	{
+		printf("valor de joker %s\n", joker[k]);
+		k++;
+	}*/
+
+//	if (ft_is_unique(argv) == 0) 
+//		return (0);
+//	if (ft_is_min_max(argv) == 0)
+//		return (0);
 	return (1);
 }
 
+/*
 int main(int argc, char *argv[])
 {
 	ft_printf("Retorno de verification_main: %i\n", verification_main(argc, argv));
-}
+} */
