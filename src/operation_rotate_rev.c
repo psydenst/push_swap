@@ -1,11 +1,21 @@
-// INCLUIR 2 HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_rotate_rev.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 20:00:00 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 20:00:24 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	rev_rotate(t_stack *lst)
 {
-	t_node *aux;
-	
+	t_node	*aux;
+
 	if (lst == NULL)
 		exit (0);
 	if (lst->head != lst->tail)
@@ -34,7 +44,6 @@ void	reverse_b(t_stack *b)
 	{
 		rev_rotate(b);
 		ft_printf("rrb");
-
 	}
 }
 

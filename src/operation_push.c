@@ -1,23 +1,32 @@
-// INCLUDE 42 HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_push.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 19:58:11 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	push(t_stack *src, t_stack *dst)
 {
-	t_node *aux;
+	t_node	*aux;
 
-	if (src->head != NULL) // a lista não está vazia
+	if (src->head != NULL)
 	{
-		aux = src->head; // salvo o valor
-		if (src->head != NULL) // não está vazio
-			src->head->prev = NULL; // entao o anterior do primeiro
-// elemento será vazio
+		aux = src->head;
+		if (src->head != NULL)
+			src->head->prev = NULL;
 		else
-			src->tail = NULL; // o final da lista será vazio
-		if (dst->head != NULL) // a lista destino está vazia?
-			dst->head->prev = aux; // transfiro antigo valor de src 
+			src->tail = NULL;
+		if (dst->head != NULL)
+			dst->head->prev = aux;
 		else
-			dst->tail = aux; // 
+			dst->tail = aux;
 		dst->head = aux;
 	}
 }
@@ -39,4 +48,3 @@ void	push_b(t_stack *a, t_stack *b)
 		ft_printf("pb\n");
 	}
 }
-

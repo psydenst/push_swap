@@ -1,8 +1,17 @@
-// INCLUIR 42 HEADER
-#include <stdio.h>
-#include <stdlib.h>
-#include "../inc/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 18:59:42 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 19:12:45 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../inc/push_swap.h"
+#include <stdio.h>
 char    *ft_strjoin_c(char *s1, char *s2, int c)
 {
         char    *p;
@@ -14,7 +23,7 @@ char    *ft_strjoin_c(char *s1, char *s2, int c)
                 s1 = (char *)malloc(1 * sizeof(char));
 		s1[0] = '\0';
         }
-        p = malloc((ft_strlen(s1) + ft_strlen(s2) + 2) * (sizeof(char)));
+		p = malloc(((ft_strlen(s1) + ft_strlen(s2) + 2) + 1) * (sizeof(char)));
         if (!p)
                 return (NULL);
         a = -1;

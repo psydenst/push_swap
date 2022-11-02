@@ -1,10 +1,21 @@
-// INCLUDE 42 HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_rotate.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 19:58:39 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 19:59:17 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	rotate(t_stack *lst)
 {
-	t_node *aux;
+	t_node	*aux;
+
 	if (lst == NULL)
 		exit (0);
 	if (lst->head != lst->tail)

@@ -1,10 +1,20 @@
-// INCLUDE 42 HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_swap.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 20:00:53 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 20:01:43 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	swap(t_stack *list)
 {
-	t_node *aux;
+	t_node	*aux;
 
 	aux = NULL;
 	if (list->head->next != NULL)
@@ -20,7 +30,7 @@ void	swap(t_stack *list)
 
 void	swap_a(t_stack *list)
 {
-	if (list->head != list->tail) // se a lista não tiver só 2 elementos
+	if (list->head != list->tail)
 	{
 		swap(list);
 		ft_printf("sa\n");
@@ -29,7 +39,7 @@ void	swap_a(t_stack *list)
 
 void	swap_b(t_stack *list)
 {
-	if (list->head != list->tail) // se a lista não tiver só 2 elementos
+	if (list->head != list->tail)
 	{
 		swap(list);
 		ft_printf("sb\n");

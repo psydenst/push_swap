@@ -1,16 +1,25 @@
-// HEADER 42
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 19:53:34 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	populate_stack(t_stack *a ,int argc, char **argv)
+void	populate_stack(t_stack *a, int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
 	{	
 		add_top(a, ft_atoi(argv[argc - i]));
-		//ft_printf("Valor na interação %i depois add_top é %i\n", i, a->head->n);
 		i++;
 	}
 }
@@ -24,7 +33,7 @@ void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
 	data->argc = argc;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	/*t_stack	a;
 	t_stack	b;

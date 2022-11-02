@@ -1,18 +1,29 @@
-// INCLUDE 42 HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_reference.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 19:44:52 by psydenst          #+#    #+#             */
+/*   Updated: 2022/11/02 19:46:39 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdio.h>
 #include "../inc/push_swap.h"
 
 int	*create_reference(int argc, char *argv[], int *reference)
 {
-	int index;
-	int z;
+	int	index;
+	int	z;
+
 	if (argc == 1)
 		exit (0);
-	reference = malloc((argc - 1)  * sizeof(int));
+	reference = malloc((argc - 1) * sizeof(int));
 	index = 1;
 	z = 0;
-	while (index < argc)	
+	while (index < argc)
 	{
 		reference[z] = ft_atoi(argv[index]);
 		z++;
@@ -22,12 +33,11 @@ int	*create_reference(int argc, char *argv[], int *reference)
 	return (reference);
 }
 
-
-int *sort_reference(int argc, int *reference)
+int	*sort_reference(int argc, int *reference)
 {
 	int	offset;
 	int	i;
-	int temp;
+	int	temp;
 
 	offset = 0;
 	while (offset < argc - 1)

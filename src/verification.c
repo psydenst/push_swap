@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 23:33:53 by psydenst          #+#    #+#             */
-/*   Updated: 2022/10/28 19:44:37 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:44:35 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,26 @@ int	ft_strdigit(char **joker)
 	return (1);
 }
 
-/*
-int	ft_is_unique(char **argv)
+int	ft_is_unique(char **joker)
 {
 	int	i;
 	int	j;
 	
-	i
-	
+	i = 0;
+	j = 0;
+	while(joker[i])
+	{
+		
+		while(joker[j]) 
+		{
+			if (ft_atoi(joker[i]) == ft_atoi(joker[j]) && i != j)
+			   	return (0);	
+			j++;
+		}
+		i++;
+	}
 	return (1);
-} */
+}
 
 
 int ft_min_max(char **joker)
@@ -56,35 +66,27 @@ int ft_min_max(char **joker)
 	int	i;
 
 	i = 0;
-	ft_printf("Valor de joker[0]: %i", ft_atoi(joker[0]));
 	while(joker[i])
 	{
-		if (ft_atoi(joker[i]) > INT_MAX) // A minha atoi tá bugada
+		if (ft_atoi(joker[i]) > INT_MAX)			
 			return (0);
 		if (ft_atoi(joker[i]) < INT_MIN)
 			return (0);
 		i++;
 	}
-/*
-	while (joker[offset])
-	{
-		if (ft_atoi(joker[offset]) < -2147483648 
-		|| ft_atoi(joker[offset]) > 2147483647)
-			return (0);
-		offset++;
-	}*/
 		return (1);
 }
 
 int	verification_main(int argc, char **argv)
 {
-	int	i;
+	int		i;
 	char	*str;
 	char	**joker;
 
 	ft_printf("Valor de argc %i\n", argc);
 	if (ft_strdigit(argv) == 0)
 		return (0);
+	str = NULL;
 	i = 1;
 	while (argv[i]) 
 	{
@@ -92,16 +94,9 @@ int	verification_main(int argc, char **argv)
 		i++;
 	}
 	joker = ft_split(str, ' ');
-	int k = 0;
-	while(joker[k])
-	{
-		ft_printf("%s\n", joker[k]);
-		k++;
-	}
-	
-//	if (ft_is_unique(argv) == 0) 
-//		return (0);
-	ft_printf("return value de min max: %i\n", ft_min_max(joker));
+
+	if (ft_is_unique(joker) == 0) 
+		return (0);
 	if (ft_min_max(joker) == 0)
 		return (0);
 	return (1);
