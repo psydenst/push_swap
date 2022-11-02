@@ -30,6 +30,7 @@ int main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;*/
 
+//	ft_printf("Valor de verification é %i\n", verification_main(argc, argv));
 	if (verification_main(argc, argv) == 0)
 			return(write(1, "Error\n", 6));
 	else

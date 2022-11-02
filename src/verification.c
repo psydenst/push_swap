@@ -49,33 +49,36 @@ int	ft_is_unique(char **argv)
 	return (1);
 } */
 
-/*
+
 int ft_min_max(char **joker)
 {
 
 	int	i;
-	int	offset;
 
-	offset = 0;
+	i = 0;
+	ft_printf("Valor de joker[0]: %i", ft_atoi(joker[0]));
+	while(joker[i])
+	{
+		if (ft_atoi(joker[i]) > INT_MAX) // A minha atoi tá bugada
+			return (0);
+		if (ft_atoi(joker[i]) < INT_MIN)
+			return (0);
+		i++;
+	}
+/*
 	while (joker[offset])
 	{
-		i = 0;
-		while (joker[offset][i])
-		{
-				if (ft_atoi(joker[offset][i]) < -2147483648 || ft_atoi(joker[offset][i] > 2147483647)
-					return (0);
-				i++;
-			}
-			offset++;
-		}
-	ft_printf("%s\n", joker[0]);
+		if (ft_atoi(joker[offset]) < -2147483648 
+		|| ft_atoi(joker[offset]) > 2147483647)
+			return (0);
+		offset++;
+	}*/
 		return (1);
-} */
+}
 
 int	verification_main(int argc, char **argv)
 {
 	int	i;
-	//int k = 0;
 	char	*str;
 	char	**joker;
 
@@ -85,30 +88,22 @@ int	verification_main(int argc, char **argv)
 	i = 1;
 	while (argv[i]) 
 	{
-		str= ft_strjoin_c(str,  argv[i], ' ');
+		str = ft_strjoin_c(str,  argv[i], ' ');
 		i++;
 	}
-	ft_printf("Valor de str é : %s\n", str);
 	joker = ft_split(str, ' ');
-
-	int j = 0;
-//	ft_printf("%s\n%s\n%s\n", joker[0], joker[1], joker[2]);
-	while(joker[j])
-	{
-		ft_printf("%s\n", joker[j]);
-		j++;
-	}
-/*
+	int k = 0;
 	while(joker[k])
 	{
-		printf("valor de joker %s\n", joker[k]);
+		ft_printf("%s\n", joker[k]);
 		k++;
-	}*/
-
+	}
+	
 //	if (ft_is_unique(argv) == 0) 
 //		return (0);
-//	if (ft_is_min_max(argv) == 0)
-//		return (0);
+	ft_printf("return value de min max: %i\n", ft_min_max(joker));
+	if (ft_min_max(joker) == 0)
+		return (0);
 	return (1);
 }
 

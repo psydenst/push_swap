@@ -5,6 +5,8 @@
 
 # include "../libft/libft.h"
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 typedef struct s_node
 {
 	int		n;
@@ -84,6 +86,8 @@ void    radix_sort(t_stack *a, t_stack *b, int argc);
 
 int     verification_main(int argc, char *argv[]);
 int     ft_is_unique(char **argv);
+int	ft_min_max(char **joker);
+
 // int     ft_strdigit(char **joker);
 
 #endif
