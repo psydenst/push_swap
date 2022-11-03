@@ -1,5 +1,6 @@
 // INCLUIR HEADER 42
 
+#include <stdio.h>
 #include "../inc/push_swap.h"
 
 void	empty_stack(t_stack *a, int value)
@@ -30,15 +31,14 @@ void	add_top(t_stack *a, int number)
 	}
 }
 
-void	printf_stack(t_stack *a)
+void	printf_stack(t_node *a)
 {
-	t_node *start;
-
-	start = a->head;
-	while (start != NULL)
+	while (1)
 	{
-		ft_printf("%i\n", start->n);
-		start = start->next;
+		printf("%d\n", a->n);
+		if (a->next == NULL)
+			break;
+		a = a->next;
 	}
 	ft_printf("\n");
 }

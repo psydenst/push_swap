@@ -35,45 +35,36 @@ void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
 
 int	main(int argc, char **argv)
 {
-	/*t_stack	a;
+	t_stack	a;
 	t_stack	b;
-	t_data	data;*/
+	t_data	data;
 
-//	ft_printf("Valor de verification é %i\n", verification_main(argc, argv));
-	if (verification_main(argc, argv) == 0)
+	if (verification_main(argv) == 0)
 			return(write(1, "Error\n", 6));
-	else
-		return (1);
-	/*
+	
 	data.reference = NULL;
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
-	populate_stack(&a, argc, argv); */
+	populate_stack(&a, argc, argv);
 //	sort_two(&a);
 //	sort_three(&a, &b);
-	
+
 //	printf_stack(&a);
-/*
+
 	data.reference = create_reference(argc, argv, data.reference);
-	ft_printf("Valor de %i\n", ft_array_len(data.reference));
+// 	ft_printf("Valor de %i\n", ft_array_len(data.reference));
 	simplifly_numbers(a.head, data.reference);
-*/
-//	radix_sort(&a, &b, argc);
-/*
-	while(a.head)
+	int y = 0;
+	while (data.reference[y])
 	{
-		ft_printf("%i\n", a.head->simple);
-		a.head = a.head->next;
+		ft_printf("Valor de reference: %i\n", data.reference[y]);
+		y++;
 	}
-	int i = 0;
-	while (i < argc - 1)
-	{
-		ft_printf("%i\n", reference[i]);
-		i++;
-	}
+	radix_sort(&a, &b, argc);
+	printf_stack(a.head);
 	//compare_reference(&reference);
-	free(reference); */
+	free(data.reference);
 /*
 // SWAP_TEST 
 	swap_a(&a);

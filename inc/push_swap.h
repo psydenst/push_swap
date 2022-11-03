@@ -32,7 +32,7 @@ typedef struct s_stack
 // UTILS.C
 
 void	add_top(t_stack *a, int number);
-void    printf_stack(t_stack *a);
+void    printf_stack(t_node *a);
 void	printf_both(t_stack *a, t_stack *b);
 int		ft_array_len(int *array);
 
@@ -84,7 +84,7 @@ void    radix_sort(t_stack *a, t_stack *b, int argc);
 
 // VERIFICATION
 
-int     verification_main(int argc, char *argv[]);
+int     verification_main(char *argv[]);
 int     ft_is_unique(char **argv);
 int	ft_min_max(char **joker);
 

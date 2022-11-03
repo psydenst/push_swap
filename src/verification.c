@@ -47,7 +47,7 @@ int	ft_is_unique(char **joker)
 	j = 0;
 	while(joker[i])
 	{
-		
+		j = 0;	
 		while(joker[j]) 
 		{
 			if (ft_atoi(joker[i]) == ft_atoi(joker[j]) && i != j)
@@ -77,13 +77,12 @@ int ft_min_max(char **joker)
 		return (1);
 }
 
-int	verification_main(int argc, char **argv)
+int	verification_main(char **argv)
 {
 	int		i;
 	char	*str;
 	char	**joker;
 
-	ft_printf("Valor de argc %i\n", argc);
 	if (ft_strdigit(argv) == 0)
 		return (0);
 	str = NULL;

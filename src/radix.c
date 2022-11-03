@@ -15,8 +15,8 @@ void	simplifly_numbers(t_node *head, int *reference)
 			{
 				head->simple = i + 1;
 
-				ft_printf("valor de reference é %i na interação %i\n", reference[i], set);
-				ft_printf("valor de simple é %i na interação %i\n", head->simple, set); 
+	//			ft_printf("valor de reference é %i na interação %i\n", reference[i], set);
+	//			ft_printf("valor de simple é %i na interação %i\n", head->simple, set); 
 			}
 			i++;
 		}
@@ -43,14 +43,14 @@ void	radix_sort(t_stack *a, t_stack *b, int argc)
 		{
 			if ((a->head->simple >> offset & 1) == 0)
 			{
-				//ft_printf("Bitwise termina em 0 em %i\n", a->head->simple);
+				printf_both(a, b);
 				push_b(a, b);
 			}
-			/*else
+			else
 			{
 				rotate_a(a);	
 				//ft_printf("Bitwise termina em 1 em %i\n", a->head->simple);
-			} */
+			}
 			// printf_both(a, b);
 			a->head = a->head->next;
 			size++;
