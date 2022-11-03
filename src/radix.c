@@ -25,16 +25,41 @@ void	simplifly_numbers(t_node *head, int *reference)
 	}
 }
 
+int	binary_house_count(t_stack *a)
+{
+	int	biggest_node;
+	int	len;
+	t_node *tmp;
+
+	len = 0;
+	tmp = a->head;
+	biggest_node = a->head->simple;
+	while (tmp->next)
+	{
+		if (biggest_node < tmp->next->simple)
+			biggest_node = tmp->next->simple;
+		tmp = tmp->next;
+	}
+	while (biggest_node > 0)
+	{
+		biggest_node = biggest_node / 2;
+		len++;
+	}
+	return (len);
+}
+
 void	radix_sort(t_stack *a, t_stack *b, int argc)
 {
 	int	offset;
-	int	bin_houses = 3; // Depois devo fazer um função que descubra o valor final dela.
+	int	bin_houses;
 	t_node	joker;
 	int j = 0;
 	joker = *a->head;
 	offset = 0;
 	int size;
 
+	bin_houses = binary_house_count(a);
+	ft_printf("Valor de bin_houses é: %i\n", bin_houses);
 	size = 0;
 	while (offset < bin_houses)
 	{
