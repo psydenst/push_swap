@@ -62,49 +62,56 @@ int	stack_len(t_stack *a)
 	}
 	ft_printf("Valor de stack_len é %i\n", i);
 	return (i);
-
 }
 
 void	radix_sort(t_stack *a, t_stack *b)
 {
-	int	offset;
-	int	bin_houses;
+	int		offset;
+	int		bin_houses;
 	t_node	joker;
-	int size;
+	int 	size;
 
 	int j = 0;
 	joker = *a->head;
 	offset = 0;
 	bin_houses = binary_house_count(a);
+	ft_printf("valor de bin_houses: %i\n", bin_houses);
 	size = stack_len(a);
 	while (offset < bin_houses)
 	{
 		a->head = &joker;
 		while (size) // O CÓDIGO QUEBRA SE TIVER ZERO
 		{
-			if ((a->head->simple >> offset & 1) == 0)
+			if ((a->head->simple << offset & 1) == 0)
 			{
-				printf_both(a, b);
+			//	printf_both(a, b);
 				push_b(a, b);
 			}
 			else
-			{
 				rotate_a(a);	
-				//ft_printf("Bitwise termina em 1 em %i\n", a->head->simple);
-			}
-			// printf_both(a, b);
 			a->head = a->head->next;
 			size--;
 		}
-		while (b->head)
+		/*while (b->head)
 		{
 			push_a(b, a);
-			printf_both(a, b);
 			b->head = b->head->next;
-		}
+		} */
 		offset++;
-		ft_printf("FIM DA %i ITERAÇÃO\n", j);
+		//	ft_printf("FIM DA %i ITERAÇÃO\n", j);
 		j++;
 	}
+	printf_both(a, b);
 }
+
+void	ordenation_radix_p2(t_stack *a, t_stack *b, int bin_houses, int i)
+{
+	int	len_stackb;
+
+	len_stackb = stack_len(b);
+	ft_printf("Valor de stackb é: %i\n", b);
+
+}
+
+
 
