@@ -80,7 +80,9 @@ int sort_three(t_stack *a, t_stack *b);
 // RADIX.C
 
 void    simplifly_numbers(t_node *head, int *reference);
-void    radix_sort(t_stack *a, t_stack *b, int argc);
+void    radix_sort(t_stack *a, t_stack *b);
+int		stack_len(t_stack *a);
+int		binary_house_count(t_stack *a);
 
 // VERIFICATION
 

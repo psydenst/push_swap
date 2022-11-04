@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/02 19:53:34 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:53:20 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,7 @@ int	main(int argc, char **argv)
 	simplifly_numbers(a.head, data.reference);
 	int y = 0;
 	while (data.reference[y])
-	{
-		ft_printf("Valor de reference: %i\n", data.reference[y]);
-		y++;
-	}
-	radix_sort(&a, &b, argc);
+	radix_sort(&a, &b);
 	printf_stack(a.head);
 	//compare_reference(&reference);
 	free(data.reference);

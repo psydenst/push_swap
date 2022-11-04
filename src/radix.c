@@ -48,23 +48,39 @@ int	binary_house_count(t_stack *a)
 	return (len);
 }
 
-void	radix_sort(t_stack *a, t_stack *b, int argc)
+int	stack_len(t_stack *a)
+{
+	int		i;
+	t_stack *joker;
+
+	joker = a;
+	i = 0;
+	while(joker->head)
+	{
+		i++;
+		joker->head = joker->head->next;
+	}
+	ft_printf("Valor de stack_len é %i\n", i);
+	return (i);
+
+}
+
+void	radix_sort(t_stack *a, t_stack *b)
 {
 	int	offset;
 	int	bin_houses;
 	t_node	joker;
+	int size;
+
 	int j = 0;
 	joker = *a->head;
 	offset = 0;
-	int size;
-
 	bin_houses = binary_house_count(a);
-	ft_printf("Valor de bin_houses é: %i\n", bin_houses);
-	size = 0;
+	size = stack_len(a);
 	while (offset < bin_houses)
 	{
 		a->head = &joker;
-		while (size < argc - 1) // O CÓDIGO QUEBRA SE TIVER ZERO
+		while (size) // O CÓDIGO QUEBRA SE TIVER ZERO
 		{
 			if ((a->head->simple >> offset & 1) == 0)
 			{
@@ -78,7 +94,7 @@ void	radix_sort(t_stack *a, t_stack *b, int argc)
 			}
 			// printf_both(a, b);
 			a->head = a->head->next;
-			size++;
+			size--;
 		}
 		while (b->head)
 		{
@@ -91,3 +107,4 @@ void	radix_sort(t_stack *a, t_stack *b, int argc)
 		j++;
 	}
 }
+
