@@ -4,12 +4,15 @@
 
 void	sort_main(t_stack *a, t_stack *b)
 {
-	ft_printf("%i\n", stack_len(a));
-	if (stack_len(a) == 2)
+	int a1;
+
+	a1 = stack_len(a);
+	ft_printf("O valor de a é: %i\n", a1);
+	if (a1 == 2)
 		swap_a(a);
-	else if (stack_len(a) == 3)
+	if (a1 == 3)
 	{
-		if (a->head->next->n < a->head->n)
+		if (a->head->n > a->head->next->n)
 			swap_a(a);
 		if (a->head->next->next->n < a->head->n)
 			reverse_a(a);
@@ -21,7 +24,7 @@ void	sort_main(t_stack *a, t_stack *b)
 	} /*
 	else if (stack(a) <= 5)
 		small_sort*/
-	else if(stack_len(a) > 5)
+	else if (stack_len(a) > 5)
 		radix_sort(a, b);
 }
 
@@ -60,7 +63,6 @@ int	stack_len(t_stack *a)
 		i++;
 		joker->head = joker->head->next;
 	}
-	ft_printf("Valor de stack_len é %i\n", i);
 	return (i);
 }
 

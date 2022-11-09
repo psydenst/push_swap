@@ -91,7 +91,7 @@ void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
 
 int     verification_main(char *argv[]);
 int     ft_is_unique(char **argv);
-int	ft_min_max(char **joker);
+int		ft_min_max(char **joker);
 
 // int     ft_strdigit(char **joker);
 
