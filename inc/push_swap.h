@@ -39,6 +39,8 @@ int		ft_array_len(int *array);
 // UTILS2.C
 
 char    *ft_strjoin_c(char *s1, char *s2, int c);
+void    simplifly_numbers(t_node *head, int *reference);
+int	is_ordered(t_stack *a, int *reference);
 
 // OPERATION_SWAP.C
 
@@ -77,18 +79,19 @@ int	*sort_reference(int argc, int *reference);
 int sort_two(t_stack *a);
 int sort_three(t_stack *a, t_stack *b);
 
-// RADIX.C
 
-void    simplifly_numbers(t_node *head, int *reference);
+// RADIX.C
+void    sort_main(t_stack *a, t_stack *b);
 void    radix_sort(t_stack *a, t_stack *b);
 int		stack_len(t_stack *a);
 int		binary_house_count(t_stack *a);
+void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
 
 // VERIFICATION
 
 int     verification_main(char *argv[]);
 int     ft_is_unique(char **argv);
-int		ft_min_max(char **joker);
+int	ft_min_max(char **joker);
 
 // int     ft_strdigit(char **joker);
 

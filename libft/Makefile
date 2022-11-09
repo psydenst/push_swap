@@ -40,7 +40,7 @@ SRCS =	ft_atoi.c \
 		ft_put_unsig_nbr.c \
 		ft_putnbr.c \
 
-SRCS_BONUS	=	ft_lstnew_bonus.c \
+SRCS_BONUS	=		ft_lstnew_bonus.c \
 				ft_lstadd_front_bonus.c \
 				ft_lstsize_bonus.c \
 				ft_lstlast_bonus.c \

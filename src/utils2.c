@@ -39,15 +39,41 @@ char    *ft_strjoin_c(char *s1, char *s2, int c)
         return (p);
 }
 
-/*
-int main()
+int is_ordered(t_stack *a, int *reference)
 {
-	char *s = ft_strjoin_c("44 ", "  555", ' ');
-	char **joker; 
+	int i;
 
-	joker = ft_split(s, ' ');
-	int i = -1;
-	while(joker[i++])
-		printf("%s\n", joker[i]);
-} */
+	i = 0;
+	while (a->head->n == reference[i])
+	{
+		if (a->head->next == NULL)
+			return (1);
+		i++;
+		a->head = a->head->next;
+	} 
+	return (0);
+}
+
+void    simplifly_numbers(t_node *head, int *reference)
+{
+        int i;
+        int set = 0;
+        while (head)
+        {
+                i = 0;
+                while (reference[i])
+                {
+                        if (reference[i] == head->n)
+                        {
+                                head->simple = i + 1;
+
+        //                      ft_printf("valor de reference é %i na interação %i\n", reference[i], set);
+        //                      ft_printf("valor de simple é %i na interação %i\n", head->simple, set);
+                        }
+                        i++;
+                }
+                set++;
+                head = head->next;
+        }
+}
 

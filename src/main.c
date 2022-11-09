@@ -41,18 +41,21 @@ int	main(int argc, char **argv)
 
 	if (verification_main(argv) == 0)
 			return(write(1, "Error\n", 6));
-	
 	data.reference = NULL;
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, argc, argv);
-	//sort_two(&a);
-	//sort_three(&a, &b);
-
 	data.reference = create_reference(argc, argv, data.reference);
+	if (is_ordered(&a, data.reference) == 1)
+	{
+		// free em stack_a
+		free(data.reference);
+		return (0);
+	}
 	simplifly_numbers(a.head, data.reference);
-	radix_sort(&a, &b);
+	// printf_both(&a, &b);
+	sort_main(&a, &b);
 	//printf_stack(a.head);
 	//compare_reference(&reference);
 	//printf_both(&a, &b);

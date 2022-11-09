@@ -2,27 +2,27 @@
 
 #include "../inc/push_swap.h"
 
-void	simplifly_numbers(t_node *head, int *reference)
+void	sort_main(t_stack *a, t_stack *b)
 {
-	int i;
-	int set = 0;
-	while (head)
+	ft_printf("%i\n", stack_len(a));
+	if (stack_len(a) == 2)
+		swap_a(a);
+	else if (stack_len(a) == 3)
 	{
-		i = 0;
-		while (reference[i])
+		if (a->head->next->n < a->head->n)
+			swap_a(a);
+		if (a->head->next->next->n < a->head->n)
+			reverse_a(a);
+		if (a->head->next->next->n < a->head->next->n)
 		{
-			if (reference[i] == head->n)
-			{
-				head->simple = i + 1;
-
-	//			ft_printf("valor de reference é %i na interação %i\n", reference[i], set);
-	//			ft_printf("valor de simple é %i na interação %i\n", head->simple, set); 
-			}
-			i++;
+			reverse_a(a);
+			swap_a(a);
 		}
-		set++;
-		head = head->next;
-	}
+	} /*
+	else if (stack(a) <= 5)
+		small_sort*/
+	else if(stack_len(a) > 5)
+		radix_sort(a, b);
 }
 
 int	binary_house_count(t_stack *a)
@@ -71,7 +71,6 @@ void	radix_sort(t_stack *a, t_stack *b)
 	t_node	joker;
 	int 	size;
 
-	int j = 0;
 	joker = *a->head;
 	offset = 0;
 	bin_houses = binary_house_count(a);
@@ -80,9 +79,9 @@ void	radix_sort(t_stack *a, t_stack *b)
 	while (offset < bin_houses)
 	{
 		a->head = &joker;
-		while (size) // O CÓDIGO QUEBRA SE TIVER ZERO
+		while (size)
 		{
-			if ((a->head->simple << offset & 1) == 0)
+			if ((a->head->simple <<  offset & 1) == 0)
 			{
 			//	printf_both(a, b);
 				push_b(a, b);
@@ -92,26 +91,26 @@ void	radix_sort(t_stack *a, t_stack *b)
 			a->head = a->head->next;
 			size--;
 		}
-		/*while (b->head)
-		{
-			push_a(b, a);
-			b->head = b->head->next;
-		} */
+		radix_sort2(a, b, bin_houses, offset);
 		offset++;
-		//	ft_printf("FIM DA %i ITERAÇÃO\n", j);
-		j++;
 	}
+	// a->head = &joker;
 	printf_both(a, b);
 }
 
-void	ordenation_radix_p2(t_stack *a, t_stack *b, int bin_houses, int i)
+
+void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i)
 {
-	int	len_stackb;
+	int	size;
 
-	len_stackb = stack_len(b);
-	ft_printf("Valor de stackb é: %i\n", b);
-
+	size = stack_len(b);
+	while (size)
+	{
+		if((b->head->simple & 1 << (i + 1)) != 0 || i == bin_houses - 1)
+			push_a(a, b);
+		else
+			rotate_b(b);
+		size--;
+	}
 }
-
-
 
