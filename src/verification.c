@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 23:33:53 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/02 19:44:35 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:13:00 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,10 @@ int ft_min_max(char **joker)
 		return (1);
 }
 
-int	verification_main(char **argv)
+int	verification_main(char **argv, t_data *data)
 {
 	int		i;
 	char	*str;
-	char	**joker;
 
 	if (ft_strdigit(argv) == 0)
 		return (0);
@@ -92,11 +91,11 @@ int	verification_main(char **argv)
 		str = ft_strjoin_c(str,  argv[i], ' ');
 		i++;
 	}
-	joker = ft_split(str, ' ');
+	data->joker = ft_split(str, ' ');
 
-	if (ft_is_unique(joker) == 0) 
+	if (ft_is_unique(data->joker) == 0) 
 		return (0);
-	if (ft_min_max(joker) == 0)
+	if (ft_min_max(data->joker) == 0)
 		return (0);
 	return (1);
 }

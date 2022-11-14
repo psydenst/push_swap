@@ -6,17 +6,18 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:44:52 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/02 19:46:39 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:43:52 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../inc/push_swap.h"
 
-int	*create_reference(int argc, char *argv[], int *reference)
+int	*create_reference(int argc, char *argv[])
 {
 	int	index;
 	int	z;
+	int	*reference;		
 
 	if (argc == 1)
 		exit (0);

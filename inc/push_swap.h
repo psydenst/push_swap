@@ -39,7 +39,7 @@ int		ft_array_len(int *array);
 // UTILS2.C
 
 char    *ft_strjoin_c(char *s1, char *s2, int c);
-void    simplifly_numbers(t_node *head, int *reference);
+void    simplifly_numbers(t_stack *original, int *reference);
 int	is_ordered(t_stack *a, int *reference);
 
 // OPERATION_SWAP.C
@@ -71,7 +71,7 @@ void    rev_rotate_both(t_stack *a, t_stack *b);
 
 // CREATE_REFERENCE.C
 
-int	*create_reference(int argc, char *argv[], int *reference);
+int	*create_reference(int argc, char *argv[]);
 int	*sort_reference(int argc, int *reference);
 
 // SMALL_SORTS.C
@@ -89,7 +89,7 @@ void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
 
 // VERIFICATION
 
-int     verification_main(char *argv[]);
+int     verification_main(char *argv[], t_data *data);
 int     ft_is_unique(char **argv);
 int		ft_min_max(char **joker);
 

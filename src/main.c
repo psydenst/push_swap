@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/09 15:54:40 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:36:41 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ int	main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;
 
-	if (verification_main(argv) == 0)
+	if (verification_main(argv, &data) == 0)
 			return(write(1, "Error\n", 6));
 	data.reference = NULL;
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, argc, argv);
-	data.reference = create_reference(argc, argv, data.reference);
+	data.reference = create_reference(argc, argv);
+	ft_printf("O valor de data.reference[0] é %i\n", data.reference[0]);
+	simplifly_numbers(&a, data.reference);
 	if (is_ordered(&a, data.reference) == 1)
 	{
-		// free em stack_a
 		free(data.reference);
 		return (0);
 	}
-	simplifly_numbers(a.head, data.reference);
 	ft_printf("Valor de a e b: ");
 	printf_both(&a, &b);
 	sort_main(&a, &b);

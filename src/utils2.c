@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:59:42 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/09 15:51:43 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/14 19:12:42 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,37 +47,37 @@ int is_ordered(t_stack *a, int *reference)
 	joker = NULL;
 	joker = a;
 	i = 0;
-	while (a->head->n == reference[i])
+	while (joker->head->n == reference[i])
 	{
-		if (a->head->next == NULL)
+		if (joker->head->next == NULL)
 			return (1);
 		i++;
-		a->head = a->head->next;
+		joker->head = joker->head->next;
 	}
-   	a->head = joker->head;
 	return (0);
 }
 
-void    simplifly_numbers(t_node *head, int *reference)
+void    simplifly_numbers(t_stack *original, int *reference)
 {
         int i;
-        int set = 0;
-        while (head)
+		t_stack *head;
+		t_node	*first_position;
+
+		first_position = original->head;
+		head = original;
+		while (head->head)
         {
                 i = 0;
                 while (reference[i])
                 {
-                        if (reference[i] == head->n)
+                        if (reference[i] == head->head->n)
                         {
-                                head->simple = i + 1;
-
-        //                      ft_printf("valor de reference é %i na interação %i\n", reference[i], set);
-        //                      ft_printf("valor de simple é %i na interação %i\n", head->simple, set);
+                                head->head->simple = i + 1;
                         }
                         i++;
                 }
-                set++;
-                head = head->next;
+                head->head = head->head->next;
         }
+		original->head = first_position;
 }
 
