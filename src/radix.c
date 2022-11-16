@@ -54,15 +54,16 @@ int	binary_house_count(t_stack *a)
 int	stack_len(t_stack *a)
 {
 	int		i;
-	t_stack *joker;
+	t_node *joker;
 
-	joker = a;
+	joker = a->head;
 	i = 0;
-	while(joker->head)
+	while(a->head)
 	{
 		i++;
-		joker->head = joker->head->next;
+		a->head = a->head->next;
 	}
+	a->head = joker;
 	return (i);
 }
 

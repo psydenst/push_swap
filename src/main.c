@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_printf("Valor de a e b: ");
-	printf_both(&a, &b);
+//	printf_both(&a, &b);
 	sort_main(&a, &b);
 	//printf_stack(a.head);
 	//compare_reference(&reference);
