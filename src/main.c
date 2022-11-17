@@ -12,14 +12,14 @@
 
 #include "../inc/push_swap.h"
 
-void	populate_stack(t_stack *a, int argc, char **argv)
+void	populate_stack(t_stack *a, t_data *data)
 {
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < data->args_count)
 	{	
-		add_top(a, ft_atoi(argv[argc - i]));
+		add_top(a, ft_atoi(data->joker[i]));
 		i++;
 	}
 }
@@ -45,9 +45,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
-	populate_stack(&a, argc, argv);
+	populate_stack(&a, &data);
+	printf_both(&a, &b);
 	data.reference = create_reference(argc, argv);
-	ft_printf("O valor de data.reference[0] é %i\n", data.reference[0]);
+	ft_printf("O valor de argc é %i\n", argc);
 	simplifly_numbers(&a, data.reference);
 	if (is_ordered(&a, data.reference) == 1)
 	{
@@ -61,7 +62,8 @@ int	main(int argc, char **argv)
 	//compare_reference(&reference);
 	//printf_both(&a, &b);
 	free(data.reference);
-
+	ft_printf("valor da stacka no final é:\n "); 
+	printf_both(&a, &b);
 	return (0);
 /*
 // SWAP_TEST 

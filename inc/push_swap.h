@@ -21,6 +21,7 @@ typedef	struct	s_data
 	int	*reference;
 	char	**joker;
 	int	reference_max;
+	int	args_count;
 } t_data;
 
 typedef struct s_stack
@@ -28,6 +29,10 @@ typedef struct s_stack
 	t_node	*tail;
 	t_node *head;
 } t_stack;
+// MAIN.C
+
+void    populate_stack(t_stack *a, t_data *data);
+void    start_struct(t_stack *a, t_stack *b, int argc, t_data *data);
 
 // UTILS.C
 

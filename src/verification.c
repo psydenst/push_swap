@@ -29,7 +29,8 @@ int	ft_strdigit(char **joker)
 		while(joker[offset][i])
 		{
 			if ((joker[offset][i] < '0' || joker[offset][i] > '9') 
-			&& joker[offset][i] != ' ')
+			&& joker[offset][i] != ' ' && joker[offset][i] != '+'
+			&& joker[offset][i] != '-')
 					return (0);
 			i++;
 		}
@@ -92,7 +93,11 @@ int	verification_main(char **argv, t_data *data)
 		i++;
 	}
 	data->joker = ft_split(str, ' ');
-
+	data->args_count = 0;
+	while (data->joker[data->args_count])
+		data->args_count++;
+	ft_printf("Valor de args_count é %i\n", data->args_count);
+	
 	if (ft_is_unique(data->joker) == 0) 
 		return (0);
 	if (ft_min_max(data->joker) == 0)
@@ -102,6 +107,8 @@ int	verification_main(char **argv, t_data *data)
 
 /*
 int main(int argc, char *argv[])
-{
-	ft_printf("Retorno de verification_main: %i\n", verification_main(argc, argv));
+{	
+	ft_strdigit(argv);
+	ft_printf("valor de argc %i e retorno de strdigit %i\n", argc, ft_strdigit(argv));
+
 } */

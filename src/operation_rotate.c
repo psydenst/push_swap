@@ -16,12 +16,12 @@ void	rotate(t_stack *lst)
 {
 	t_node	*aux;
 
-	if (lst == NULL)
+	if (lst == NULL || lst->head->next == NULL)
 		exit (0);
 	if (lst->head != lst->tail)
 	{
 		aux = lst->head;
-		lst->head = aux->next;
+		lst->head = lst->head->next;
 		lst->head->prev = NULL;
 		lst->tail->next = aux;
 		aux->next = NULL;

@@ -42,18 +42,19 @@ char    *ft_strjoin_c(char *s1, char *s2, int c)
 int is_ordered(t_stack *a, int *reference)
 {
 	int i;
-	t_stack *joker;
+	t_node *joker;
 
 	joker = NULL;
-	joker = a;
+	joker = a->head;
 	i = 0;
-	while (joker->head->n == reference[i])
+	while (a->head->n == reference[i])
 	{
-		if (joker->head->next == NULL)
+		if (a->head->next == NULL)
 			return (1);
 		i++;
-		joker->head = joker->head->next;
+		a->head = a->head->next;
 	}
+	a->head = joker;
 	return (0);
 }
 
