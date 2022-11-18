@@ -96,8 +96,6 @@ int	verification_main(char **argv, t_data *data)
 	data->args_count = 0;
 	while (data->joker[data->args_count])
 		data->args_count++;
-	ft_printf("Valor de args_count é %i\n", data->args_count);
-	
 	if (ft_is_unique(data->joker) == 0) 
 		return (0);
 	if (ft_min_max(data->joker) == 0)
@@ -105,10 +103,3 @@ int	verification_main(char **argv, t_data *data)
 	return (1);
 }
 
-/*
-int main(int argc, char *argv[])
-{	
-	ft_strdigit(argv);
-	ft_printf("valor de argc %i e retorno de strdigit %i\n", argc, ft_strdigit(argv));
-
-} */

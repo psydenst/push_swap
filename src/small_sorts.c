@@ -16,8 +16,6 @@ int	sort_two(t_stack *a)
 {
 	if (a->head->n > a->head->next->n)
 		swap_a(a);
-	ft_printf("Valor de a->head é %i\n", a->head->n);
-	ft_printf("Valor de a->head é %i\n", a->head->next->n);
 	return (0);
 }
 
@@ -25,7 +23,6 @@ int	sort_three(t_stack *a, t_stack *b)
 {
 	if (a->head->n < a->head->next->n && a->head->next->n < a->tail->n)
 			return (0);
-	// caso 231
 	if (a->head->next->n > a->head->n && a->tail->n < a->head->n)
 	{
 			reverse_a(a);

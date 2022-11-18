@@ -12,46 +12,38 @@
 
 #include "../inc/push_swap.h"
 
-void	push(t_stack *src, t_stack *dst)
-{
-	t_node	*joker;
-	t_node 	*joker_next;
-
-	if (dst->head != NULL)
-		joker_next = dst->head->next;
-	else
-		joker_next = NULL;
-	if (src->head == NULL)
-		return ;
-	joker = src->head;
-	dst->head = joker;
-	dst->head->next = joker_next;
-	src->head = src->head->next;
-	src->head->next->prev = NULL;
-}
-
-// VERSÃO ANTIGA DA PUSH (QUE FUNCIONA)
 /*
+void	push(t_stack **src, t_stack **dst)
+{
+	t_stack	*node1;
+	t_stack	*node2;
+
+	if (*src == NULL)
+		return ;
+	node1 = *src;
+	node2 = *src;
+	node1->head = node1->head->next;
+	node2->head->next = *dst->head;
+	*dst = node2;
+	*src = node1;
+} */
+  
+// VERSÃO ANTIGA DA PUSH (QUE FUNCIONA)
+
 void	push(t_stack *src, t_stack *dst)
 {
 	t_node	*aux;
 
-	if (src->head != NULL)
-	{
-		aux = src->head;
-		if (src->head != NULL)
-			src->head->prev = NULL;
-		else
-			src->tail = NULL;
-		if (dst->head != NULL)
-			dst->head->prev = aux;
-		else
-			dst->tail = aux;
-		dst->head = aux;
-	}
-}
+	aux = src->head;
+	src->head = src->head->next;
+	if (dst->head != NULL)
+		dst->head->prev = aux;
+	else
 
-*/
+		dst->head = aux;
+
+
+}
 
 void	push_a(t_stack *b, t_stack *a)
 {

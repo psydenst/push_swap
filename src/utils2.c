@@ -99,8 +99,3 @@ int	find_min_number(t_stack *a)
 	return (smallernode);
 }
 
-
-
-
-
-

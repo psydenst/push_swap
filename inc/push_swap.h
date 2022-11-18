@@ -39,7 +39,7 @@ void    start_struct(t_stack *a, t_stack *b, int argc, t_data *data);
 void	add_top(t_stack *a, int number);
 void    printf_stack(t_node *a);
 void	printf_both(t_stack *a, t_stack *b);
-int		ft_array_len(int *array);
+int	ft_array_len(int *array);
 
 // UTILS2.C
 
@@ -57,7 +57,7 @@ void    swap_ab(t_stack *a, t_stack *b);
 
 // OPERATION_PUSH.C
 
-void	push(t_stack *src, t_stack *dst);
+void    push(t_stack *src, t_stack *dst);
 void	push_a(t_stack *b, t_stack *a);
 void	push_b(t_stack *a, t_stack *b);
 
@@ -82,15 +82,15 @@ int	*sort_reference(int argc, int *reference);
 
 // SMALL_SORTS.C
 
-int sort_two(t_stack *a);
-int sort_three(t_stack *a, t_stack *b);
+int 	sort_two(t_stack *a);
+int 	sort_three(t_stack *a, t_stack *b);
 
 
 // RADIX.C
 void    sort_main(t_stack *a, t_stack *b);
 void    radix_sort(t_stack *a, t_stack *b);
-int		stack_len(t_stack *a);
-int		binary_house_count(t_stack *a);
+int	stack_len(t_stack *a);
+int	binary_house_count(t_stack *a);
 void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
 void    small_sort(t_stack *a, t_stack *b);
 void    small_sort_2(t_stack* a, t_stack *b);
@@ -99,8 +99,8 @@ void    small_sort_2(t_stack* a, t_stack *b);
 
 int     verification_main(char *argv[], t_data *data);
 int     ft_is_unique(char **argv);
-int		ft_min_max(char **joker);
+int	ft_min_max(char **joker);
 
-// int     ft_strdigit(char **joker);
+int	ft_strdigit(char **joker);
 
 #endif

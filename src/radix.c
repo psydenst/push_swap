@@ -7,7 +7,6 @@ void	sort_main(t_stack *a, t_stack *b)
 	int a1;
 
 	a1 = stack_len(a);
-//	ft_printf("O valor de a é: %i\n", a1);
 	if (a1 == 2)
 		swap_a(a);
 	if (a1 == 3)
@@ -78,7 +77,6 @@ void	radix_sort(t_stack *a, t_stack *b)
 	joker = a->head;
 	offset = 0;
 	bin_houses = binary_house_count(a);
-	ft_printf("valor de bin_houses: %i\n", bin_houses);
 	size = stack_len(a);
 	while (offset < bin_houses)
 	{
@@ -97,8 +95,6 @@ void	radix_sort(t_stack *a, t_stack *b)
 		radix_sort2(a, b, bin_houses, offset);
 		offset++;
 	}
-	// a->head = joker;
-	printf_both(a, b);
 }
 
 
@@ -127,8 +123,6 @@ void	small_sort(t_stack *a, t_stack *b)
 	joker = a->head;
 	smallernode = find_min_number(a);
 	len = stack_len(a);
-	ft_printf("Antes do loop\n");
-	printf_both(a, b);
 	while (len)
 	{
 		if (a->head->n == smallernode)
@@ -138,10 +132,8 @@ void	small_sort(t_stack *a, t_stack *b)
 		len--;
 	}
 	smallernode = find_min_number(a);
-	ft_printf("Após o loop\n");
-	printf_both(a, b);
 	len = stack_len(a);
-// 	small_sort_2(a, b);
+	small_sort_2(a, b);
 	a->head = joker;
 }
 
@@ -161,13 +153,15 @@ void	small_sort_2(t_stack* a, t_stack *b)
 			rotate_a(a);
 		len--;
 	}
-	// sort_main(a->head->next, b);
 	if (b->head->n < b->head->next->n)
 		swap_b(b);
-	while(stack_len(b) > 0)
+	len = stack_len(b);
+	printf_both(a, b);
+	while(len)
 	{	
 		push_b(a, b);
 		b->head = b->head->next;
+		len--;
 	}
 }
 

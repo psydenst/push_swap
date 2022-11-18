@@ -17,10 +17,10 @@ void	populate_stack(t_stack *a, t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->args_count)
+	while (data->args_count)
 	{	
-		add_top(a, ft_atoi(data->joker[i]));
-		i++;
+		add_top(a, ft_atoi(data->joker[data->args_count - 1]));
+		data->args_count--;
 	}
 }
 
@@ -46,33 +46,17 @@ int	main(int argc, char **argv)
 		return (0);
 	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, &data);
-        printf_both(&a, &b);
-	push_a(&a, &b);
-	printf_both(&a, &b);
-
-/*
-
-
-//	printf_both(&a, &b);
 	data.reference = create_reference(argc, argv);
-//	ft_printf("O valor de argc é %i\n", argc);
 	simplifly_numbers(&a, data.reference);
 	if (is_ordered(&a, data.reference) == 1)
 	{
 		free(data.reference);
 		return (0);
 	}
-//	ft_printf("Valor de a e b: ");
-//	printf_both(&a, &b);
 	sort_main(&a, &b);
-	//printf_stack(a.head);
-	//compare_reference(&reference);
-	//printf_both(&a, &b);
 	free(data.reference);
-//	ft_printf("valor da stacka no final é:\n "); 
-	printf_both(&a, &b);
 	return (0);
-
+/*
 // SWAP_TEST 
 	swap_a(&a);
 	ft_printf("Valor de a após swap é:\n");
