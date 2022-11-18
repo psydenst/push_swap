@@ -63,7 +63,7 @@ void printf_both(t_stack *A, t_stack *B)
   ft_printf("\n");
   while ( A->head != NULL || B->head != NULL) 
   {
-		if (A != NULL) 
+		if (A->head != NULL) 
 		{
 			ft_printf("%d\t", A->head->n);
 			A->head = A->head->next;

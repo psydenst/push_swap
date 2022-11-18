@@ -14,6 +14,26 @@
 
 void	push(t_stack *src, t_stack *dst)
 {
+	t_node	*joker;
+	t_node 	*joker_next;
+
+	if (dst->head != NULL)
+		joker_next = dst->head->next;
+	else
+		joker_next = NULL;
+	if (src->head == NULL)
+		return ;
+	joker = src->head;
+	dst->head = joker;
+	dst->head->next = joker_next;
+	src->head = src->head->next;
+	src->head->next->prev = NULL;
+}
+
+// VERSÃO ANTIGA DA PUSH (QUE FUNCIONA)
+/*
+void	push(t_stack *src, t_stack *dst)
+{
 	t_node	*aux;
 
 	if (src->head != NULL)
@@ -30,6 +50,8 @@ void	push(t_stack *src, t_stack *dst)
 		dst->head = aux;
 	}
 }
+
+*/
 
 void	push_a(t_stack *b, t_stack *a)
 {

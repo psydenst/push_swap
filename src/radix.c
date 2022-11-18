@@ -7,7 +7,7 @@ void	sort_main(t_stack *a, t_stack *b)
 	int a1;
 
 	a1 = stack_len(a);
-	ft_printf("O valor de a é: %i\n", a1);
+//	ft_printf("O valor de a é: %i\n", a1);
 	if (a1 == 2)
 		swap_a(a);
 	if (a1 == 3)
@@ -21,9 +21,9 @@ void	sort_main(t_stack *a, t_stack *b)
 			reverse_a(a);
 			swap_a(a);
 		}
-	} /*
-	else if (stack(a) <= 5)
-		small_sort*/
+	} 
+	else if (stack_len(a) <= 5)
+		small_sort(a, b);
 	else if (stack_len(a) > 5)
 		radix_sort(a, b);
 }
@@ -87,7 +87,6 @@ void	radix_sort(t_stack *a, t_stack *b)
 		{
 			if ((a->head->simple <<  offset & 1) == 0)
 			{
-			//	printf_both(a, b);
 				push_b(a, b);
 			}
 			else
@@ -115,6 +114,60 @@ void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i)
 		else
 			rotate_b(b);
 		size--;
+	}
+}
+
+
+void	small_sort(t_stack *a, t_stack *b)
+{
+	int	smallernode;
+	int	len;
+	t_node	*joker;
+
+	joker = a->head;
+	smallernode = find_min_number(a);
+	len = stack_len(a);
+	ft_printf("Antes do loop\n");
+	printf_both(a, b);
+	while (len)
+	{
+		if (a->head->n == smallernode)
+			push_b(a, b); 
+		else
+			rotate_a(a);
+		len--;
+	}
+	smallernode = find_min_number(a);
+	ft_printf("Após o loop\n");
+	printf_both(a, b);
+	len = stack_len(a);
+// 	small_sort_2(a, b);
+	a->head = joker;
+}
+
+void	small_sort_2(t_stack* a, t_stack *b)
+{
+	int len;
+	int smallernode;
+
+	smallernode = find_min_number(a);
+	len = stack_len(a);
+
+	while (len)
+	{
+		if (a->head->n == smallernode)
+			push_b(a, b);
+		else
+			rotate_a(a);
+		len--;
+	}
+	// sort_main(a->head->next, b);
+	if (b->head->n < b->head->next->n)
+		swap_b(b);
+	while(stack_len(b) > 0)
+	{	
+		push_b(a, b);
+		b->head = b->head->next;
 	}
 }
 

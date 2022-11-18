@@ -46,6 +46,7 @@ int		ft_array_len(int *array);
 char    *ft_strjoin_c(char *s1, char *s2, int c);
 void    simplifly_numbers(t_stack *original, int *reference);
 int	is_ordered(t_stack *a, int *reference);
+int     find_min_number(t_stack *a);
 
 // OPERATION_SWAP.C
 
@@ -91,6 +92,8 @@ void    radix_sort(t_stack *a, t_stack *b);
 int		stack_len(t_stack *a);
 int		binary_house_count(t_stack *a);
 void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
+void    small_sort(t_stack *a, t_stack *b);
+void    small_sort_2(t_stack* a, t_stack *b);
 
 // VERIFICATION
 

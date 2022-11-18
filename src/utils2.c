@@ -82,3 +82,25 @@ void    simplifly_numbers(t_stack *original, int *reference)
 		original->head = first_position;
 }
 
+int	find_min_number(t_stack *a)
+{
+	t_node	*joker;
+	int	smallernode;
+
+	joker = a->head;
+	smallernode = a->head->n;
+	while (a->head->next)
+	{
+		if (smallernode > a->head->next->n)
+			smallernode = a->head->next->n;
+		a->head = a->head->next;
+	}
+	a->head = joker;
+	return (smallernode);
+}
+
+
+
+
+
+
