@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/14 18:36:41 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:11:57 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 void	populate_stack(t_stack *a, t_data *data)
 {
 	int	i;
+	int joker;
 
+	joker = data->args_count;
 	i = 0;
 	while (data->args_count)
 	{	
 		add_top(a, ft_atoi(data->joker[data->args_count - 1]));
 		data->args_count--;
 	}
+	data->args_count = joker;
 }
 
 void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
@@ -46,7 +49,14 @@ int	main(int argc, char **argv)
 		return (0);
 	start_struct(&a, &b, argc, &data);
 	populate_stack(&a, &data);
-	data.reference = create_reference(argc, argv);
+	
+	data.reference = create_reference(&data);
+	int i = 0;
+	while(data.reference[i])
+	{
+		ft_printf("Valor de data.reference é %i", data.reference[i]);
+		i++;
+	}
 	simplifly_numbers(&a, data.reference);
 	if (is_ordered(&a, data.reference) == 1)
 	{
@@ -55,6 +65,7 @@ int	main(int argc, char **argv)
 	}
 	sort_main(&a, &b);
 	free(data.reference);
+	printf_both(&a, &b);
 	return (0);
 /*
 // SWAP_TEST 

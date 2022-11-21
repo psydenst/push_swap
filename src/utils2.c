@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:59:42 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/14 19:12:42 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:04:16 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,13 @@ void    simplifly_numbers(t_stack *original, int *reference)
 		head = original;
 		while (head->head)
         {
-                i = 0;
+				i = 0;
                 while (reference[i])
                 {
                         if (reference[i] == head->head->n)
                         {
                                 head->head->simple = i + 1;
+								ft_printf("Valor de simple é %i em %i\n",head->head->simple, i );
                         }
                         i++;
                 }

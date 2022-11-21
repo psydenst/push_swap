@@ -6,45 +6,43 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:44:52 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/14 17:43:52 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:38:31 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../inc/push_swap.h"
 
-int	*create_reference(int argc, char *argv[])
+void	*create_reference(t_data *data)
 {
 	int	index;
 	int	z;
-	int	*reference;		
 
-	if (argc == 1)
+	if (data->args_count == 1)
 		exit (0);
-	reference = malloc((argc - 1) * sizeof(int));
-	index = 1;
+	data.reference = malloc((data->args_count) * sizeof(int));
+	index = 0;
 	z = 0;
-	while (index < argc)
+	while (index < data->args_count)
 	{
-		reference[z] = ft_atoi(argv[index]);
+		data.reference[z] = ft_atoi(data->joker[index]);
 		z++;
 		index++;
 	}
-	reference = sort_reference(argc, reference);
-	return (reference);
+	data.reference = sort_reference(reference, data);
 }
 
-int	*sort_reference(int argc, int *reference)
+int	*sort_reference(int *reference, t_data *data)
 {
 	int	offset;
 	int	i;
 	int	temp;
 
 	offset = 0;
-	while (offset < argc - 1)
+	while (offset < data->args_count)
 	{
 		i = 0;
-		while (i < argc - 2)
+		while (i < data->args_count)
 		{
 			if (reference[i] > reference[i + 1])
 			{	

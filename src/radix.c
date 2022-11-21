@@ -8,23 +8,34 @@ void	sort_main(t_stack *a, t_stack *b)
 
 	a1 = stack_len(a);
 	if (a1 == 2)
-		swap_a(a);
+		sort_two(a);
 	if (a1 == 3)
-	{
-		if (a->head->n > a->head->next->n)
-			swap_a(a);
-		if (a->head->next->next->n < a->head->n)
-			reverse_a(a);
-		if (a->head->next->next->n < a->head->next->n)
-		{
-			reverse_a(a);
-			swap_a(a);
-		}
-	} 
+		sort_three(a); 
 	else if (stack_len(a) <= 5)
 		small_sort(a, b);
 	else if (stack_len(a) > 5)
 		radix_sort(a, b);
+}
+
+void	sort_two(t_stack *a)
+{
+	if (a->head->n > a->head->next->n)
+		swap(a);
+	else
+		return ;
+}
+
+void	sort_three(t_stack *a)
+{
+	if (a->head->n > a->head->next->n)
+		swap_a(a);
+	if (a->head->next->next->n < a->head->n)
+		reverse_a(a);
+	if (a->head->next->next->n < a->head->next->n)
+	{
+		reverse_a(a);
+		swap_a(a);
+	}
 }
 
 int	binary_house_count(t_stack *a)
@@ -38,10 +49,13 @@ int	binary_house_count(t_stack *a)
 	biggest_node = a->head->simple;
 	while (a->head->next)
 	{
+		if (a->head->next == NULL)
+			break;
 		if (biggest_node < a->head->next->simple)
 			biggest_node = a->head->next->simple;
 		a->head = a->head->next;
 	}
+	ft_printf("Valor de biggestnode é : %i\n", biggest_node); 
 	while (biggest_node > 0)
 	{
 		biggest_node = biggest_node / 2;
@@ -69,10 +83,10 @@ int	stack_len(t_stack *a)
 
 void	radix_sort(t_stack *a, t_stack *b)
 {
-	int		offset;
-	int		bin_houses;
+	int			offset;
+	int			bin_houses;
 	t_node		*joker;
-	int 	size;
+	int 		size;
 
 	joker = a->head;
 	offset = 0;
@@ -81,7 +95,7 @@ void	radix_sort(t_stack *a, t_stack *b)
 	while (offset < bin_houses)
 	{
 		a->head = joker;
-		while (size)
+		while (a->head != NULL)
 		{
 			if ((a->head->simple <<  offset & 1) == 0)
 			{
@@ -90,11 +104,11 @@ void	radix_sort(t_stack *a, t_stack *b)
 			else
 				rotate_a(a);	
 			a->head = a->head->next;
-			size--;
 		}
 		radix_sort2(a, b, bin_houses, offset);
 		offset++;
 	}
+	a->head = joker;
 }
 
 
@@ -141,10 +155,9 @@ void	small_sort_2(t_stack* a, t_stack *b)
 {
 	int len;
 	int smallernode;
-
 	smallernode = find_min_number(a);
-	len = stack_len(a);
 
+	len = stack_len(a);
 	while (len)
 	{
 		if (a->head->n == smallernode)
@@ -155,13 +168,15 @@ void	small_sort_2(t_stack* a, t_stack *b)
 	}
 	if (b->head->n < b->head->next->n)
 		swap_b(b);
+	if (stack_len(a) == 2)
+		sort_two(a);
+	if (stack_len(a) == 3)
+		sort_three(a);
 	len = stack_len(b);
-	printf_both(a, b);
-	while(len)
+	while (b->head != NULL)
 	{	
-		push_b(a, b);
+		push_a(b, a);
 		b->head = b->head->next;
-		len--;
 	}
 }
 

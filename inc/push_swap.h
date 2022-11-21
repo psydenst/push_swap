@@ -77,13 +77,13 @@ void    rev_rotate_both(t_stack *a, t_stack *b);
 
 // CREATE_REFERENCE.C
 
-int	*create_reference(int argc, char *argv[]);
-int	*sort_reference(int argc, int *reference);
+int *create_reference(t_data *data);
+int *sort_reference(int *reference, t_data *data);
 
 // SMALL_SORTS.C
 
-int 	sort_two(t_stack *a);
-int 	sort_three(t_stack *a, t_stack *b);
+void	sort_two(t_stack *a);
+void 	sort_three(t_stack *a);
 
 
 // RADIX.C

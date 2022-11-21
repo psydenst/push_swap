@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 20:00:00 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/02 20:00:24 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:35:34 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	reverse_a(t_stack *a)
 	if (a->head != a->tail)
 	{
 		rev_rotate(a);
-		ft_printf("rra");
+		ft_printf("rra\n");
 	}
 }
 
@@ -43,7 +43,7 @@ void	reverse_b(t_stack *b)
 	if (b->head != b->tail)
 	{
 		rev_rotate(b);
-		ft_printf("rrb");
+		ft_printf("rrb\n");
 	}
 }
 
