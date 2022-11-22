@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/21 15:31:35 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/22 20:17:33 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	push(t_stack *src, t_stack *dst)
 		dst->head->prev = aux;
 		aux->next = aux2;
 		dst->head = aux;
+		dst->tail->next	= NULL;
 	}
 	else
 	{

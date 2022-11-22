@@ -77,8 +77,8 @@ void    rev_rotate_both(t_stack *a, t_stack *b);
 
 // CREATE_REFERENCE.C
 
-int *create_reference(t_data *data);
-int *sort_reference(int *reference, t_data *data);
+void create_reference(t_data *data);
+void sort_reference(t_data *data);
 
 // SMALL_SORTS.C
 
@@ -89,8 +89,8 @@ void 	sort_three(t_stack *a);
 // RADIX.C
 void    sort_main(t_stack *a, t_stack *b);
 void    radix_sort(t_stack *a, t_stack *b);
-int	stack_len(t_stack *a);
-int	binary_house_count(t_stack *a);
+int		stack_len(t_stack *a);
+int		binary_house_count(t_stack *a);
 void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
 void    small_sort(t_stack *a, t_stack *b);
 void    small_sort_2(t_stack* a, t_stack *b);
@@ -99,8 +99,7 @@ void    small_sort_2(t_stack* a, t_stack *b);
 
 int     verification_main(char *argv[], t_data *data);
 int     ft_is_unique(char **argv);
-int	ft_min_max(char **joker);
-
-int	ft_strdigit(char **joker);
+int		ft_min_max(char **joker);
+int		ft_strdigit(char **joker);
 
 #endif
