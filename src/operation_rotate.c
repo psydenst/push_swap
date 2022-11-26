@@ -16,8 +16,8 @@ void	rotate(t_stack *lst)
 {
 	t_node	*aux;
 
-	if (lst == NULL || lst->head->next == NULL)
-		exit (0);
+	if (lst == NULL || lst->head == NULL)
+		return ;
 	if (lst->head != lst->tail)
 	{
 		aux = lst->head;
@@ -27,7 +27,22 @@ void	rotate(t_stack *lst)
 		aux->next = NULL;
 		lst->tail = aux;
 	}
-}
+
+/*	t_node	*aux2;
+	if (a->head != NULL)
+	{
+		aux = a->head;
+		aux2 = a->tail;
+		a->head = a->head->next;
+		a->head->prev = aux2;
+	//	a->head = aux2;
+		a->tail = a->tail->prev;
+		a->tail->next = aux;
+		aux->next = NULL;
+	}
+	else
+		return ;*/
+}	
 
 void	rotate_a(t_stack *a)
 {

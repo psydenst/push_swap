@@ -12,6 +12,7 @@
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
+
 char    *ft_strjoin_c(char *s1, char *s2, int c)
 {
         char    *p;
@@ -58,29 +59,27 @@ int is_ordered(t_stack *a, int *reference)
 	return (0);
 }
 
-void    simplifly_numbers(t_stack *original, int *reference)
+void    simplifly_numbers(t_stack *a, t_data *data)
 {
         int i;
-		t_stack *head;
-		t_node	*first_position;
+	t_node	*joker;
 
-		first_position = original->head;
-		head = original;
-		while (head->head)
+	joker = a->head;
+	while (a->head)
         {
-				i = 0;
-                while (reference[i])
+		i = 0;
+                while (i < data->args_count)
                 {
-                        if (reference[i] == head->head->n)
-                        {
-                                head->head->simple = i + 1;
-								ft_printf("Valor de simple é %i em %i\n",head->head->simple, i );
-                        }
-                        i++;
+			if (data->reference[i] == a->head->n)
+			{
+				a->head->simple = i + 1;
+		//		printf("Valor de simple é %i em %i\n", a->head->simple, a->head->n);
+			}
+			i++;
                 }
-                head->head = head->head->next;
+                a->head = a->head->next;
         }
-		original->head = first_position;
+		a->head = joker;
 }
 
 int	find_min_number(t_stack *a)
@@ -99,4 +98,33 @@ int	find_min_number(t_stack *a)
 	a->head = joker;
 	return (smallernode);
 }
+
+void	find_first_node(t_stack *a)
+{
+//	while (a->head == NULL)
+//		a->head = a->head->prev;
+	while (a->head->prev != NULL)
+		a->head = a->head->prev;
+	if (a->head->prev == NULL)
+		return ;
+	else
+		write(1, "Problem", 7); 
+}
+
+/*
+void	tail_mark(t_stack *a)
+{
+	t_node *joker;
+
+	joker = 
+	while (a->head->next != NULL)
+		a->head = a->head->next;	
+	if (a->head->next == NULL)
+		a->head = a->tail;
+	a->head = joker;
+} */
+
+
+
+
 

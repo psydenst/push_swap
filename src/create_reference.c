@@ -29,13 +29,13 @@ void	create_reference(t_data *data)
 		z++;
 		index++;
 	}
-	int i = 0;
+/*	int i = 0;
 	ft_printf("Valor de data->reference em create_reference é: ");
-	while(data->reference[i])
+	while(i < data->args_count)
     {
         ft_printf("%i ", data->reference[i]);
         i++;
-    }
+    } */
 	sort_reference(data);
 }
 
@@ -45,15 +45,8 @@ void	sort_reference(t_data *data)
 	int	i;
 	int	temp;
 
-	int j = 0;
-	ft_printf("Valor de data->reference em SORT_REFERENCE é: ");
-	while(data->reference[j])
-    {
-        ft_printf("%i ", data->reference[j]);
-        j++;
-    }
 	offset = 0;
-	while (offset < data->args_count)
+	while (offset < data->args_count - 1)
 	{
 		i = 0;
 		while (i < data->args_count - 1)
@@ -68,26 +61,13 @@ void	sort_reference(t_data *data)
 		}
 		offset++;
 	}
-	int j2 = 0;
+/*	int j2 = 0;
 	ft_printf("Valor de data->reference em SORT_REFERENCE DEPOIS DO LOOP é: ");
-	while(data->reference[j2])
+	while(j2 < data->args_count)
     {
         ft_printf("%i ", data->reference[j2]);
         j2++;
-    }
+    } */
 }
 
-/*
-int main(int argc, char *argv[])
-{
-	int i = 0;
-	int *reference = NULL;
-	reference = create_reference(argc, argv, reference);
-	//reference = sort_reference(argc, reference);
-	while (reference[i])
-	{
-		printf("%i\n", reference[i]);
-		i++;
-	}
-	return (0);
-} */
+

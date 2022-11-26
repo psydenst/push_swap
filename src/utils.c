@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../inc/push_swap.h"
 
 void	empty_stack(t_stack *a, int value)
@@ -41,16 +40,22 @@ void	add_top(t_stack *a, int number)
 	}
 }
 
-void	printf_stack(t_node *a)
+void	printf_stack(t_stack *a)
 {
+	t_node	*joker;
+	
+	if (a == NULL || a->head == NULL)
+		return ;
+	joker = a->head; 
 	while (1)
 	{
-		printf("%d\n", a->n);
-		if (a->next == NULL)
+		ft_printf("%d\n", a->head->n);
+		if (a->head->next == NULL)
 			break;
-		a = a->next;
+		a->head = a->head->next;
 	}
 	ft_printf("\n");
+	a->head = joker;
 }
 
 void printf_both(t_stack *A, t_stack *B)

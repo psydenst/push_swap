@@ -33,6 +33,8 @@ void	push(t_stack *src, t_stack *dst)
 	t_node	*aux;
 	t_node	*aux2;
 
+	if (src->head == NULL || src == NULL)
+		return ;
 	aux2 = dst->head;
 	aux = src->head;
 	src->head = src->head->next;
@@ -40,8 +42,9 @@ void	push(t_stack *src, t_stack *dst)
 	{
 		dst->head->prev = aux;
 		aux->next = aux2;
+		aux->prev = NULL;
 		dst->head = aux;
-		dst->tail->next	= NULL;
+	// 	dst->tail = NULL;
 	}
 	else
 	{

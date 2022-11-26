@@ -16,11 +16,12 @@ void	rev_rotate(t_stack *lst)
 {
 	t_node	*aux;
 
-	if (lst == NULL)
-		exit (0);
+	if (lst == NULL || lst->head == NULL || stack_len(lst) == 1)
+		return ;
 	if (lst->head != lst->tail)
 	{
 		aux = lst->tail;
+		lst->tail = lst->tail->prev;
 		lst->tail->next = NULL;
 		lst->head->prev = aux;
 		aux->next = lst->head;

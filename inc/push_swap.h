@@ -29,6 +29,7 @@ typedef struct s_stack
 	t_node	*tail;
 	t_node *head;
 } t_stack;
+
 // MAIN.C
 
 void    populate_stack(t_stack *a, t_data *data);
@@ -37,16 +38,17 @@ void    start_struct(t_stack *a, t_stack *b, int argc, t_data *data);
 // UTILS.C
 
 void	add_top(t_stack *a, int number);
-void    printf_stack(t_node *a);
+void    printf_stack(t_stack *a);
 void	printf_both(t_stack *a, t_stack *b);
 int	ft_array_len(int *array);
 
 // UTILS2.C
 
 char    *ft_strjoin_c(char *s1, char *s2, int c);
-void    simplifly_numbers(t_stack *original, int *reference);
+void    simplifly_numbers(t_stack *a, t_data *data);
 int	is_ordered(t_stack *a, int *reference);
 int     find_min_number(t_stack *a);
+void    find_first_node(t_stack *a);
 
 // OPERATION_SWAP.C
 
@@ -85,8 +87,8 @@ void sort_reference(t_data *data);
 void	sort_two(t_stack *a);
 void 	sort_three(t_stack *a);
 
-
 // RADIX.C
+
 void    sort_main(t_stack *a, t_stack *b);
 void    radix_sort(t_stack *a, t_stack *b);
 int		stack_len(t_stack *a);

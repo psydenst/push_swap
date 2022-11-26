@@ -17,7 +17,7 @@ void	swap(t_stack *list)
 	t_node	*aux;
 
 	aux = NULL;
-	if (list->head->next != NULL)
+	if (list->head != NULL) 
 	{
 		aux = list->head;
 		list->head = aux->next;
