@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/22 20:17:33 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:39:01 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,27 @@ void	push(t_stack *src, t_stack *dst)
 		aux->next = aux2;
 		aux->prev = NULL;
 		dst->head = aux;
-	// 	dst->tail = NULL;
+		find_tail(dst);
 	}
 	else
 	{
 		dst->head = aux;
 		aux->next = NULL;
+		dst->head->prev = NULL;
+		dst->tail = dst->head;
 	}
+}
+
+void	find_tail(t_stack *dst)
+{
+	t_node *joker;
+
+	joker = dst->head;
+	while (dst->head->next != NULL)
+		dst->head = dst->head->next;
+	if (dst->head->next == NULL)
+		dst->tail = dst->head;
+	dst->head = joker;
 }
 
 void	push_a(t_stack *b, t_stack *a)

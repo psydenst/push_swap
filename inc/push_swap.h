@@ -62,6 +62,8 @@ void    swap_ab(t_stack *a, t_stack *b);
 void    push(t_stack *src, t_stack *dst);
 void	push_a(t_stack *b, t_stack *a);
 void	push_b(t_stack *a, t_stack *b);
+void    find_tail(t_stack *dst);
+
 
 // OPERATION_ROTATE.C
 
