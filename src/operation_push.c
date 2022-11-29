@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/29 19:39:01 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:29:15 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void	find_tail(t_stack *dst)
 	while (dst->head->next != NULL)
 		dst->head = dst->head->next;
 	if (dst->head->next == NULL)
+	{
 		dst->tail = dst->head;
+		dst->tail->next = NULL;
+	}	
 	dst->head = joker;
 }
 
