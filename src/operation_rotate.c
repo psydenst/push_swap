@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:58:39 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/02 19:59:17 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:17:47 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,21 @@
 void	rotate(t_stack *lst)
 {
 	t_node	*aux;
+	t_node	*aux2;
 
 	if (lst == NULL || lst->head == NULL)
 		return ;
 	if (lst->head != lst->tail)
 	{
 		aux = lst->head;
+		aux2 = lst->tail;
 		lst->head = lst->head->next;
 		lst->head->prev = NULL;
 		lst->tail->next = aux;
 		aux->next = NULL;
 		lst->tail = aux;
+		lst->tail->prev = aux2; 
 	}
-
-/*	t_node	*aux2;
-	if (a->head != NULL)
-	{
-		aux = a->head;
-		aux2 = a->tail;
-		a->head = a->head->next;
-		a->head->prev = aux2;
-	//	a->head = aux2;
-		a->tail = a->tail->prev;
-		a->tail->next = aux;
-		aux->next = NULL;
-	}
-	else
-		return ;*/
 }	
 
 void	rotate_a(t_stack *a)

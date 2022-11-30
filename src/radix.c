@@ -34,7 +34,6 @@ int	binary_house_count(t_stack *a)
 			biggest_node = a->head->next->simple;
 		a->head = a->head->next;
 	}
-	ft_printf("Valor de biggestnode é : %i\n", biggest_node); 
 	while (biggest_node > 0)
 	{
 		biggest_node = biggest_node / 2;
@@ -83,7 +82,6 @@ void	radix_sort(t_stack *a, t_stack *b)
 		}
 		radix_sort2(a, b, bin_houses, offset);
 		offset++;
-		a->head = joker;
 	}
 }
 
@@ -94,8 +92,8 @@ void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i)
 	size = stack_len(b);
 	while (size)
 	{
-		if ((b->head->simple & 1 << i) == 1 || i == bin_houses)
-			push_a(a, b);
+		if ((b->head->simple & 1 << i) == 1 || i == bin_houses - 1)
+			push_a(b, a);
 		else
 			rotate_b(b);
 		size--;

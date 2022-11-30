@@ -6,28 +6,12 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/29 20:29:15 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:27:26 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-/*
-void	push(t_stack **src, t_stack **dst)
-{
-	t_stack	*node1;
-	t_stack	*node2;
-
-	if (*src == NULL)
-		return ;
-	node1 = *src;
-	node2 = *src;
-	node1->head = node1->head->next;
-	node2->head->next = *dst->head;
-	*dst = node2;
-	*src = node1;
-} */
-  
 void	push(t_stack *src, t_stack *dst)
 {
 	t_node	*aux;
@@ -38,6 +22,7 @@ void	push(t_stack *src, t_stack *dst)
 	aux2 = dst->head;
 	aux = src->head;
 	src->head = src->head->next;
+	src->head->prev = NULL; // Preciso tratar caso o stack_len seja 1.
 	if (dst->head != NULL)
 	{
 		dst->head->prev = aux;
@@ -72,7 +57,18 @@ void	find_tail(t_stack *dst)
 
 void	push_a(t_stack *b, t_stack *a)
 {
-	if (b->head != NULL)
+	t_node *joker;
+
+	if (stack_len(b) == 1)
+	{
+		joker = b->head;
+		b->head = NULL;
+		b->tail = NULL;
+		joker->next = a->head;
+		joker->prev = NULL;
+		a->head = joker;
+	}
+	else if (b->head != NULL)
 	{
 		push(b, a);
 		ft_printf("pa\n");
@@ -81,6 +77,17 @@ void	push_a(t_stack *b, t_stack *a)
 
 void	push_b(t_stack *a, t_stack *b)
 {
+	t_node *joker;
+
+	if (stack_len(a) == 1)
+	{
+		joker = a->head;
+		a->head = NULL;
+		a->tail = NULL;
+		joker->next = b->head;
+		joker->prev = NULL;
+		b->head = joker;
+	}
 	if (a->head != NULL)
 	{
 		push(a, b);

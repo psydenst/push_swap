@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:31:21 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/21 14:19:16 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:47:07 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,16 @@ void    small_sort(t_stack *a, t_stack *b)
                         rotate_a(a);
                 len--;
         }
-        smallernode = find_min_number(a);
         len = stack_len(a);
         small_sort_2(a, b);
-        a->head = joker;
 }
 
 void    small_sort_2(t_stack* a, t_stack *b)
 {
         int len;
         int smallernode;
-        smallernode = find_min_number(a);
 
+		smallernode = find_min_number(a);
         len = stack_len(a);
         while (len)
         {
@@ -82,5 +80,6 @@ void    small_sort_2(t_stack* a, t_stack *b)
         {
                 push_a(b, a);
                 b->head = b->head->next;
+				len--;
         }
 }

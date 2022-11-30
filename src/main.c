@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/29 19:47:06 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:24:40 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 	sort_main(&a, &b);
 	free(data.reference);
 //	find_first_node(&a);
-//	printf_both(&a, &b);
+	printf_both(&a, &b);
 	return (0);
 }
 
