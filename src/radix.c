@@ -92,7 +92,7 @@ void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i)
 	size = stack_len(b);
 	while (size)
 	{
-		if ((b->head->simple & 1 << i) == 1 || i == bin_houses - 1)
+		if (((b->head->simple << (i + 1)) & 1) == 1 || i == bin_houses - 1)
 			push_a(b, a);
 		else
 			rotate_b(b);

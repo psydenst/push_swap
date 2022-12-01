@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:31:21 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/30 19:47:07 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:58:33 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void    sort_two(t_stack *a)
 {
         if (a->head->n > a->head->next->n)
-                swap(a);
+                swap_a(a);
         else
                 return ;
 }
@@ -75,11 +75,9 @@ void    small_sort_2(t_stack* a, t_stack *b)
                 sort_two(a);
         if (stack_len(a) == 3)
                 sort_three(a);
-        len = stack_len(b);
-        while (b->head != NULL)
+        while (b->head->next != NULL)
         {
                 push_a(b, a);
-                b->head = b->head->next;
-				len--;
         }
+		push_a(b, a);
 }

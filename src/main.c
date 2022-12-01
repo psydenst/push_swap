@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/30 18:24:40 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/01 19:37:35 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;
 
+	if (ft_strdigit(argv) == 0 || argc == 1)
+		return (0);
 	if (verification_main(argv, &data) == 0)
 			return(write(1, "Error\n", 6));
 	if (argc < 2)
@@ -58,7 +60,6 @@ int	main(int argc, char **argv)
 	}
 	sort_main(&a, &b);
 	free(data.reference);
-//	find_first_node(&a);
 	printf_both(&a, &b);
 	return (0);
 }

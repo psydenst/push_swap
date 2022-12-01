@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/30 17:27:26 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:01:42 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	push_a(t_stack *b, t_stack *a)
 		joker->next = a->head;
 		joker->prev = NULL;
 		a->head = joker;
+		ft_printf("pa\n");
 	}
 	else if (b->head != NULL)
 	{
@@ -87,6 +88,7 @@ void	push_b(t_stack *a, t_stack *b)
 		joker->next = b->head;
 		joker->prev = NULL;
 		b->head = joker;
+		ft_printf("pb\n");
 	}
 	if (a->head != NULL)
 	{
