@@ -59,7 +59,7 @@ void    small_sort_2(t_stack* a, t_stack *b)
         int len;
         int smallernode;
 
-		smallernode = find_min_number(a);
+	smallernode = find_min_number(a);
         len = stack_len(a);
         while (len)
         {

@@ -34,6 +34,8 @@ void	rotate(t_stack *lst)
 
 void	rotate_a(t_stack *a)
 {
+	if (stack_len(a) == 1)
+		return ;
 	if (a->head != a->tail)
 	{
 		rotate(a);
@@ -43,6 +45,8 @@ void	rotate_a(t_stack *a)
 
 void	rotate_b(t_stack *b)
 {
+	if (stack_len(b) == 1)
+		return ;
 	if (b->head != b->tail)
 	{
 		rotate(b);
@@ -52,6 +56,8 @@ void	rotate_b(t_stack *b)
 
 void	rotate_both(t_stack *a, t_stack *b)
 {
+	if (stack_len(b) == 1 && stack_len(a) == 1)
+		return ;
 	if (a->head != a->tail || b->head != b-> tail)
 	{
 		rotate(a);

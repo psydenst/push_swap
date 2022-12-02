@@ -58,9 +58,8 @@ int	main(int argc, char **argv)
 		free(data.reference);
 		return (0);
 	}
-	sort_main(&a, &b);
+	sort_main(&a, &b, &data);
 	free(data.reference);
-	printf_both(&a, &b);
 	return (0);
 }
 

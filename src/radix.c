@@ -2,7 +2,7 @@
 
 #include "../inc/push_swap.h"
 
-void	sort_main(t_stack *a, t_stack *b)
+void	sort_main(t_stack *a, t_stack *b, t_data *data)
 {
 	int a1;
 
@@ -14,7 +14,7 @@ void	sort_main(t_stack *a, t_stack *b)
 	else if (stack_len(a) <= 5)
 		small_sort(a, b);
 	else if (stack_len(a) > 5)
-		radix_sort(a, b);
+		radix_sort(a, b, data);
 }
 
 int	binary_house_count(t_stack *a)
@@ -59,7 +59,7 @@ int	stack_len(t_stack *a)
 	return (i);
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b, t_data *data)
 {
 	int			offset;
 	int			bin_houses;
@@ -74,29 +74,34 @@ void	radix_sort(t_stack *a, t_stack *b)
 		size = stack_len(a);
 		while (size)
 		{
-			if (((a->head->simple << offset) & 1) == 0)
+			if ((a->head->simple & 1 << offset) == 0)
 				push_b(a, b);
 			else
 				rotate_a(a);	
 			size--;
 		}
-		radix_sort2(a, b, bin_houses, offset);
+		radix_sort2(a, b, bin_houses, offset, data);
 		offset++;
+		if (is_ordered(a, data->reference) && stack_len(b) == 0)
+			return ;
 	}
+	
 }
 
-void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i)
+void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i, t_data *data)
 {
 	int	size;
 
 	size = stack_len(b);
 	while (size)
 	{
-		if (((b->head->simple << (i + 1)) & 1) == 1 || i == bin_houses - 1)
+		if ((b->head->simple & 1 << (i + 1)) != 0 || i == bin_houses - 1)
 			push_a(b, a);
 		else
 			rotate_b(b);
 		size--;
 	}
+	if (is_ordered(a, data->reference) && stack_len(b) == 0)
+		return ;
 }
 

@@ -100,11 +100,11 @@ void	sort_three(t_stack *a);
 
 // RADIX.C
 
-void	sort_main(t_stack *a, t_stack *b);
-void	radix_sort(t_stack *a, t_stack *b);
+void    sort_main(t_stack *a, t_stack *b, t_data *data);
+void    radix_sort(t_stack *a, t_stack *b, t_data *data);
 int		stack_len(t_stack *a);
 int		binary_house_count(t_stack *a);
-void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i);
+void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i, t_data *data);
 void	small_sort(t_stack *a, t_stack *b);
 void	small_sort_2(t_stack* a, t_stack *b);
 
