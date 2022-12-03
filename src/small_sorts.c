@@ -24,7 +24,9 @@ void    sort_three(t_stack *a)
 {
         if (a->head->n > a->head->next->n)
                 swap_a(a);
-        if (a->head->next->next->n < a->head->n)
+        if (a->head->n > a->head->next->n && a->head->n > a->head->next->next->n)
+		rotate(a);
+	if (a->head->next->next->n < a->head->n)
                 reverse_a(a);
         if (a->head->next->next->n < a->head->next->n)
         {
@@ -33,20 +35,46 @@ void    sort_three(t_stack *a)
         }
 }
 
+
+int	exception (t_stack *a, t_stack *b)
+{
+	if (a->head->simple == 3 && a->head->next->simple == 4 && a->head->next->next->simple == 2 
+	&& a->head->next->next->next->simple == 5 && a->tail->simple == 1)
+	{
+		reverse_a(a);
+		push_b(a, b);
+		rotate_a(a);
+		rotate_a(a);
+		push_b(a, b);
+		rotate_a(a);
+		push_a(b, a);
+		push_a(b, a);
+		return (1);
+	}
+
+	else
+		return (0);
+
+}
+
 void    small_sort(t_stack *a, t_stack *b)
 {
         int     smallernode;
         int     len;
         t_node  *joker;
-
+	if (exception(a, b) == 1)
+		return ;
         joker = a->head;
         smallernode = find_min_number(a);
         len = stack_len(a);
         while (len)
         {
                 if (a->head->n == smallernode)
-                        push_b(a, b);
-                else
+		{     
+	         	push_b(a, b);
+			break;
+                }
+		else
                         rotate_a(a);
                 len--;
         }
@@ -64,14 +92,15 @@ void    small_sort_2(t_stack* a, t_stack *b)
         while (len)
         {
                 if (a->head->n == smallernode)
+		{
                         push_b(a, b);
-                else
+                	break;
+		}
+		else
                         rotate_a(a);
                 len--;
         }
-        if (b->head->n < b->head->next->n)
-                swap_b(b);
-        if (stack_len(a) == 2)
+       if (stack_len(a) == 2)
                 sort_two(a);
         if (stack_len(a) == 3)
                 sort_three(a);

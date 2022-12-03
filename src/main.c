@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;
 
-	if (ft_strdigit(argv) == 0 || argc == 1)
+	if ( argv  == NULL || argc == 1)
 		return (0);
 	if (verification_main(argv, &data) == 0)
 			return(write(1, "Error\n", 6));
