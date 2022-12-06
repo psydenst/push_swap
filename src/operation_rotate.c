@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:58:39 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/30 15:17:47 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:00:49 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	rotate(t_stack *lst)
 		lst->tail->next = aux;
 		aux->next = NULL;
 		lst->tail = aux;
-		lst->tail->prev = aux2; 
+		lst->tail->prev = aux2;
 	}
 }	
 

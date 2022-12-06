@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:54:01 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/01 17:01:42 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:59:02 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push(t_stack *src, t_stack *dst)
 	aux2 = dst->head;
 	aux = src->head;
 	src->head = src->head->next;
-	src->head->prev = NULL; // Preciso tratar caso o stack_len seja 1.
+	src->head->prev = NULL;
 	if (dst->head != NULL)
 	{
 		dst->head->prev = aux;
@@ -42,7 +42,7 @@ void	push(t_stack *src, t_stack *dst)
 
 void	find_tail(t_stack *dst)
 {
-	t_node *joker;
+	t_node	*joker;
 
 	joker = dst->head;
 	while (dst->head->next != NULL)
@@ -57,7 +57,7 @@ void	find_tail(t_stack *dst)
 
 void	push_a(t_stack *b, t_stack *a)
 {
-	t_node *joker;
+	t_node	*joker;
 
 	if (stack_len(b) == 1)
 	{
@@ -78,7 +78,7 @@ void	push_a(t_stack *b, t_stack *a)
 
 void	push_b(t_stack *a, t_stack *b)
 {
-	t_node *joker;
+	t_node	*joker;
 
 	if (stack_len(a) == 1)
 	{

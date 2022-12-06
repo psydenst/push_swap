@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/01 19:37:35 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:54:10 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 void	populate_stack(t_stack *a, t_data *data)
 {
 	int	i;
-	int joker;
+	int	joker;
 
 	joker = data->args_count;
 	i = 0;
 	while (joker)
-	{	
+	{
 		add_top(a, ft_atoi(data->joker[joker - 1]));
-	//	ft_printf("Valor de a->head->n é %i\n", a->head->n);
 		joker--;
 	}
 }
@@ -42,7 +41,7 @@ int	main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;
 
-	if ( argv  == NULL || argc == 1)
+	if (argv == NULL || argc == 1)
 		return (0);
 	if (verification_main(argv, &data) == 0)
 			return(write(1, "Error\n", 6));

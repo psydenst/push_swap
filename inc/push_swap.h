@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:43:32 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/29 20:49:00 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:15:32 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef	struct	s_data
 	char	**joker;
 	int		reference_max;
 	int		args_count;
+	int		bin_houses;
 }	t_data;
 
 typedef struct s_stack
@@ -104,7 +105,7 @@ void    sort_main(t_stack *a, t_stack *b, t_data *data);
 void    radix_sort(t_stack *a, t_stack *b, t_data *data);
 int		stack_len(t_stack *a);
 int		binary_house_count(t_stack *a);
-void    radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i, t_data *data);
+void    radix_sort2(t_stack *a, t_stack *b, int i, t_data *data);
 void	small_sort(t_stack *a, t_stack *b);
 void	small_sort_2(t_stack* a, t_stack *b);
 

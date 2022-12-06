@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:44:52 by psydenst          #+#    #+#             */
-/*   Updated: 2022/11/22 19:59:31 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:51:20 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	create_reference(t_data *data)
 	int	z;
 
 	if (data->args_count == 1)
-		exit (0);
+		return ;
 	data->reference = malloc((data->args_count) * sizeof(int));
 	index = 0;
 	z = 0;
@@ -29,13 +29,6 @@ void	create_reference(t_data *data)
 		z++;
 		index++;
 	}
-/*	int i = 0;
-	ft_printf("Valor de data->reference em create_reference é: ");
-	while(i < data->args_count)
-    {
-        ft_printf("%i ", data->reference[i]);
-        i++;
-    } */
 	sort_reference(data);
 }
 
@@ -61,13 +54,4 @@ void	sort_reference(t_data *data)
 		}
 		offset++;
 	}
-/*	int j2 = 0;
-	ft_printf("Valor de data->reference em SORT_REFERENCE DEPOIS DO LOOP é: ");
-	while(j2 < data->args_count)
-    {
-        ft_printf("%i ", data->reference[j2]);
-        j2++;
-    } */
 }
-
-

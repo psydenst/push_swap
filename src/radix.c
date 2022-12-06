@@ -1,16 +1,26 @@
-// INClUIR 42 HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 18:03:28 by psydenst          #+#    #+#             */
+/*   Updated: 2022/12/06 18:21:35 by psydenst         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	sort_main(t_stack *a, t_stack *b, t_data *data)
 {
-	int a1;
+	int	a1;
 
 	a1 = stack_len(a);
 	if (a1 == 2)
 		sort_two(a);
 	if (a1 == 3)
-		sort_three(a); 
+		sort_three(a);
 	else if (stack_len(a) <= 5)
 		small_sort(a, b);
 	else if (stack_len(a) > 5)
@@ -19,9 +29,9 @@ void	sort_main(t_stack *a, t_stack *b, t_data *data)
 
 int	binary_house_count(t_stack *a)
 {
-	int	biggest_node;
-	int	len;
-	t_node *tmp;
+	int		biggest_node;
+	int		len;
+	t_node	*tmp;
 
 	len = 0;
 	tmp = a->head;
@@ -29,7 +39,7 @@ int	binary_house_count(t_stack *a)
 	while (a->head->next)
 	{
 		if (a->head->next == NULL)
-			break;
+			break ;
 		if (biggest_node < a->head->next->simple)
 			biggest_node = a->head->next->simple;
 		a->head = a->head->next;
@@ -46,11 +56,11 @@ int	binary_house_count(t_stack *a)
 int	stack_len(t_stack *a)
 {
 	int		i;
-	t_node *joker;
+	t_node	*joker;
 
 	joker = a->head;
 	i = 0;
-	while(a->head)
+	while (a->head)
 	{
 		i++;
 		a->head = a->head->next;
@@ -62,14 +72,13 @@ int	stack_len(t_stack *a)
 void	radix_sort(t_stack *a, t_stack *b, t_data *data)
 {
 	int			offset;
-	int			bin_houses;
 	t_node		*joker;
-	int 		size;
+	int			size;
 
 	joker = a->head;
 	offset = 0;
-	bin_houses = binary_house_count(a);
-	while (offset < bin_houses)
+	data->bin_houses = binary_house_count(a);
+	while (offset < data->bin_houses)
 	{
 		size = stack_len(a);
 		while (size)
@@ -77,25 +86,24 @@ void	radix_sort(t_stack *a, t_stack *b, t_data *data)
 			if ((a->head->simple & 1 << offset) == 0)
 				push_b(a, b);
 			else
-				rotate_a(a);	
+				rotate_a(a);
 			size--;
 		}
-		radix_sort2(a, b, bin_houses, offset, data);
+		radix_sort2(a, b, offset, data);
 		offset++;
 		if (is_ordered(a, data->reference) && stack_len(b) == 0)
 			return ;
 	}
-	
 }
 
-void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i, t_data *data)
+void	radix_sort2(t_stack *a, t_stack *b, int i, t_data *data)
 {
 	int	size;
 
 	size = stack_len(b);
 	while (size)
 	{
-		if ((b->head->simple & 1 << (i + 1)) != 0 || i == bin_houses - 1)
+		if ((b->head->simple & 1 << (i + 1)) != 0 || i == data->bin_houses - 1)
 			push_a(b, a);
 		else
 			rotate_b(b);
@@ -104,4 +112,3 @@ void	radix_sort2(t_stack *a, t_stack *b, int bin_houses, int i, t_data *data)
 	if (is_ordered(a, data->reference) && stack_len(b) == 0)
 		return ;
 }
-

@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 23:33:53 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/01 19:17:15 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:45:17 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@ int	ft_strdigit(char **joker)
 {
 	int	i;
 	int	offset;
+	int number;
 
+	number = 0;
 	offset = 1;
+
 	while (joker[offset])
 	{
+		i = 0;
+		if (joker[offset][i] == ' ')
+			i++;
+		while(joker[offset][i] >= '0' && joker[offset][i] <= '9')
+		{
+			i++;
+			number++;
+		}
 		i = 0;
 		if (joker[offset][i] == '-' || joker[offset][i] == '+')
 			i++;
@@ -36,7 +47,10 @@ int	ft_strdigit(char **joker)
 		}
 		offset++;
 	}
-	return (1);
+	if (number == 0)
+		return (0);
+	else
+		return (1);
 }
 
 int	ft_is_unique(char **joker)
@@ -96,10 +110,12 @@ int	verification_main(char **argv, t_data *data)
 	data->args_count = 0;
 	while (data->joker[data->args_count])
 		data->args_count++;
-	if (ft_is_unique(data->joker) == 0) 
+	if (ft_is_unique(data->joker) == 0 || ft_min_max(data->joker) == 0)
+	{
+		free(str);
 		return (0);
-	if (ft_min_max(data->joker) == 0)
-		return (0);
+	}
+	free(str); 
 	return (1);
 }
 

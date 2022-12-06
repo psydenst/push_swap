@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 20:00:53 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/01 18:57:34 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:01:31 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap(t_stack *list)
 
 	aux = NULL;
 	aux2 = NULL;
-	if (list->head != NULL) 
+	if (list->head != NULL)
 	{
 		aux = list->head;
 		aux2 = list->head->next->next;
