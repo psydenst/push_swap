@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/06 17:54:10 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:00:28 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,17 @@ void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
 	data->argc = argc;
 }
 
+void	free_node(t_stack *a)
+{
+	t_node	*tmp;
+	while(a->head->next)
+	{
+		tmp = a->head;
+		a->head = a->head->next;
+		free(tmp);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	a;
@@ -44,7 +55,7 @@ int	main(int argc, char **argv)
 	if (argv == NULL || argc == 1)
 		return (0);
 	if (verification_main(argv, &data) == 0)
-			return(write(1, "Error\n", 6));
+		return (write(1, "Error\n", 6));
 	if (argc < 2)
 		return (0);
 	start_struct(&a, &b, argc, &data);
@@ -59,6 +70,7 @@ int	main(int argc, char **argv)
 	}
 	sort_main(&a, &b, &data);
 	free(data.reference);
+	freeing(data.joker);
+	free_node(&a);
 	return (0);
 }
-

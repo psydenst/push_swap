@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:07:57 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/06 18:58:55 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:36:33 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,16 @@ int	ft_array_len(int *array)
 	while (array[i])
 		i++;
 	return (i);
+}
+
+void	freeing(char **joker)
+{
+	int	i;
+
+	i = 0;
+	while (joker[i])
+	{
+		free(joker[i]);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:43:32 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/06 18:15:32 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:48:14 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef	struct	s_data
 	int		reference_max;
 	int		args_count;
 	int		bin_houses;
+	int		number;
+	int		i;
 }	t_data;
 
 typedef struct s_stack
@@ -51,6 +53,7 @@ void	add_top(t_stack *a, int number);
 void	printf_stack(t_stack *a);
 void	printf_both(t_stack *a, t_stack *b);
 int		ft_array_len(int *array);
+void	freeing(char **joker);
 
 // UTILS2.C
 
@@ -114,6 +117,7 @@ void	small_sort_2(t_stack* a, t_stack *b);
 int		verification_main(char *argv[], t_data *data);
 int		ft_is_unique(char **argv);
 int		ft_min_max(char **joker);
-int		ft_strdigit(char **joker);
+int		ft_strdigit(char **joker, t_data *data);
+int 	ft_strdigit2(char **joker, int i, int offset, int number);
 
 #endif
