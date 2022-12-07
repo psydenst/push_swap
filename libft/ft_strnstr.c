@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:48:56 by psydenst          #+#    #+#             */
-/*   Updated: 2022/10/28 18:54:10 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:48:02 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,4 @@ char	*ft_strnstr(const char *haystack, const char *neddle, size_t len)
 			j = 0;
 	}
 	return (0);
-}
-
-#include <stdio.h>
-int main()
-{
-	printf("%s", ft_strnstr("155", "15", 3));
-
-
 }

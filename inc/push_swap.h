@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:43:32 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/07 19:48:14 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:45:42 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_node
 	int				simple;
 }	t_node;
 
-typedef	struct	s_data
+typedef struct s_data
 {
 	int		argc;
 	int		*reference;
@@ -46,6 +46,7 @@ typedef struct s_stack
 
 void	populate_stack(t_stack *a, t_data *data);
 void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data);
+void	free_node(t_stack *a);
 
 // UTILS.C
 
@@ -77,7 +78,6 @@ void	push_a(t_stack *b, t_stack *a);
 void	push_b(t_stack *a, t_stack *b);
 void	find_tail(t_stack *dst);
 
-
 // OPERATION_ROTATE.C
 
 void	rotate(t_stack *lst);
@@ -104,13 +104,13 @@ void	sort_three(t_stack *a);
 
 // RADIX.C
 
-void    sort_main(t_stack *a, t_stack *b, t_data *data);
-void    radix_sort(t_stack *a, t_stack *b, t_data *data);
+void	sort_main(t_stack *a, t_stack *b, t_data *data);
+void	radix_sort(t_stack *a, t_stack *b, t_data *data);
 int		stack_len(t_stack *a);
 int		binary_house_count(t_stack *a);
-void    radix_sort2(t_stack *a, t_stack *b, int i, t_data *data);
+void	radix_sort2(t_stack *a, t_stack *b, int i, t_data *data);
 void	small_sort(t_stack *a, t_stack *b);
-void	small_sort_2(t_stack* a, t_stack *b);
+void	small_sort_2(t_stack*a, t_stack *b);
 
 // VERIFICATION
 
@@ -118,6 +118,6 @@ int		verification_main(char *argv[], t_data *data);
 int		ft_is_unique(char **argv);
 int		ft_min_max(char **joker);
 int		ft_strdigit(char **joker, t_data *data);
-int 	ft_strdigit2(char **joker, int i, int offset, int number);
+int		ft_strdigit2(char **joker, int i, int offset, int number);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/07 18:00:28 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:38:37 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data)
 void	free_node(t_stack *a)
 {
 	t_node	*tmp;
-	while(a->head->next)
+
+	while (a->head->next)
 	{
 		tmp = a->head;
 		a->head = a->head->next;

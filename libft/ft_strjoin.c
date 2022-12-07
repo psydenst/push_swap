@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:37:26 by psydenst          #+#    #+#             */
-/*   Updated: 2022/06/13 15:14:19 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:48:53 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	a;
 	size_t	b;
 
-	
-	
 	p = malloc((ft_strlen(s1) + ft_strlen(s2)) * (sizeof(char *)));
 	if (p == 0)
 		return (NULL);
@@ -38,12 +36,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	p[a] = '\0';
 	return (p);
-}
-
-#include <stdio.h>
-int main()
-{
-	char *s1 = "a";
-	char *s2 = "dkdkdkdk";
-	printf("%s", ft_strjoin(s1, s2));
 }
