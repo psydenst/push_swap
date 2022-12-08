@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:39:25 by psydenst          #+#    #+#             */
-/*   Updated: 2022/05/27 16:57:05 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:48:38 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	j;
 
 	i = 0;
-	while (i <= len)
+	while (i < len)
 		i++;
-	cpy = ft_calloc(i, 1);
+	cpy = malloc(i * sizeof(char));
 	if (cpy == 0 || !cpy)
 		return (NULL);
 	if (start >= ft_strlen(s))

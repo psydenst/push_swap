@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:59:42 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/06 20:51:14 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:40:41 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ char	*ft_strjoin_c(char *s1, char *s2, int c)
 	char	*p;
 	size_t	a;
 	size_t	b;
+	int k;
 
 	if (!s1)
 	{
 		s1 = (char *)malloc(1 * sizeof(char));
 		s1[0] = '\0';
+		k = 90;
 	}
 	p = malloc(((ft_strlen(s1) + ft_strlen(s2) + 2) + 1) * (sizeof(char)));
 	if (!p)
@@ -37,6 +39,8 @@ char	*ft_strjoin_c(char *s1, char *s2, int c)
 	while (s2[b] != '\0')
 		p[a++] = s2[b++];
 	p[a] = '\0';
+	if (k == 90)
+		free(s1);
 	return (p);
 }
 

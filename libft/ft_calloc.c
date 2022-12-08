@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 19:12:25 by psydenst          #+#    #+#             */
-/*   Updated: 2022/05/27 16:00:56 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:44:40 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	q = (void *)p;
 	i = 0;
-	while (i < nb)
+	while (i < nb - 1)
 	{
 		*q++ = '\0';
 		i++;

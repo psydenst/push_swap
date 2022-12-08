@@ -6,11 +6,12 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:44:18 by psydenst          #+#    #+#             */
-/*   Updated: 2022/05/27 16:29:40 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:47:53 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static size_t	ft_len(char const *s, char c)
 {
@@ -40,7 +41,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	ret = malloc(sizeof(char *) * (ft_len(s, c) + 1));
+	ret = malloc(sizeof(char *) * (ft_len(s, c)));
 	if (!ret)
 		return (NULL);
 	while (*s)
