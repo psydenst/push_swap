@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:43:32 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/07 20:45:42 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:49:15 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_data
 	int		argc;
 	int		*reference;
 	char	**joker;
-	int		reference_max;
+//	int		reference_max;
 	int		args_count;
 	int		bin_houses;
 	int		number;

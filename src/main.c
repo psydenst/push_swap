@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/08 20:05:54 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:54:09 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,15 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sort_main(&a, &b, &data);
-	free(data.reference);
+//	free(data.reference);
 //	ft_printf("a\n");
 //	free(data.argc);
 //	freeing(data.joker);
 //	ft_printf("a\n");
-	free_node(&a);
+//	ft_printf("a\n");
+//	free(&data);
+//	ft_printf("a\n");
+	free(a);
+	free(&data);
 	return (0);
 }
