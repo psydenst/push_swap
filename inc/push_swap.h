@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:43:32 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/08 20:49:15 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:42:21 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ typedef struct s_data
 	int		argc;
 	int		*reference;
 	char	**joker;
-//	int		reference_max;
 	int		args_count;
 	int		bin_houses;
 	int		number;
 	int		i;
+	size_t	a;
+	size_t	b;
+	int		k;
 }	t_data;
 
 typedef struct s_stack
@@ -58,7 +60,7 @@ void	freeing(char **joker);
 
 // UTILS2.C
 
-char	*ft_strjoin_c(char *s1, char *s2, int c);
+char	*ft_strjoin_c(char	*s1, char *s2, int c, t_data *data);
 void	simplifly_numbers(t_stack *a, t_data *data);
 int		is_ordered(t_stack *a, int *reference);
 int		find_min_number(t_stack *a);
@@ -101,6 +103,10 @@ void	sort_reference(t_data *data);
 
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
+int		exception(t_stack *a, t_stack *b);
+int		exception_2(t_stack *a);
+int 	exception_3(t_stack *a, t_stack *b);
+int		exception_4(t_stack *a, t_stack *b);
 
 // RADIX.C
 

@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 23:33:53 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/09 17:29:31 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:41:32 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strdigit(char **joker, t_data *data)
 	while (joker[offset])
 	{
 		data->i = 0;
-		while (joker[offset][data->i] == ' ')
+		while (joker[offset][data->i] == ' ' || joker[offset][data->i] == '-')
 			data->i++;
 		while (joker[offset][data->i] >= '0' && joker[offset][data->i] <= '9')
 		{
@@ -109,7 +109,7 @@ int	verification_main(char **argv, t_data *data)
 	i = 1;
 	while (argv[i])
 	{
-		str = ft_strjoin_c(str, argv[i], ' ');
+		str = ft_strjoin_c(str, argv[i], ' ', data);
 		i++;
 	}
 	data->joker = ft_split(str, ' ');

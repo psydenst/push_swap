@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sorts.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:31:21 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/06 18:44:30 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:17:38 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	sort_two(t_stack *a)
 
 void	sort_three(t_stack *a)
 {
+	if (exception_2(a) == 1)
+		return ;
 	if (a->head->n > a->head->next->n)
 		swap_a(a);
 	if (a->head->n > a->head->next->n && a->head->n > a->head->next->next->n)
@@ -35,33 +37,15 @@ void	sort_three(t_stack *a)
 	}
 }
 
-int	exception(t_stack *a, t_stack *b)
-{
-	if (a->head->simple == 3 && a->head->next->simple == 4
-		&& a->head->next->next->simple == 2
-		&& a->head->next->next->next->simple == 5 && a->tail->simple == 1)
-	{
-		reverse_a(a);
-		push_b(a, b);
-		rotate_a(a);
-		rotate_a(a);
-		push_b(a, b);
-		rotate_a(a);
-		push_a(b, a);
-		push_a(b, a);
-		return (1);
-	}
-	else
-		return (0);
-}
-
 void	small_sort(t_stack *a, t_stack *b)
 {
 	int		smallernode;
 	int		len;
 	t_node	*joker;
 
-	if (exception(a, b) == 1)
+	if (exception(a, b) == 1 || exception_4(a, b) == 1)
+		return ;
+	if (exception_3(a, b) == 1)
 		return ;
 	joker = a->head;
 	smallernode = find_min_number(a);

@@ -6,40 +6,37 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:59:42 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/08 18:40:41 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:43:37 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
 
-char	*ft_strjoin_c(char *s1, char *s2, int c)
+char	*ft_strjoin_c(char *s1, char *s2, int c, t_data *data)
 {
 	char	*p;
-	size_t	a;
-	size_t	b;
-	int k;
 
 	if (!s1)
 	{
 		s1 = (char *)malloc(1 * sizeof(char));
 		s1[0] = '\0';
-		k = 90;
+		data->k = 90;
 	}
 	p = malloc(((ft_strlen(s1) + ft_strlen(s2) + 2) + 1) * (sizeof(char)));
 	if (!p)
 		return (NULL);
-	a = -1;
-	b = 0;
+	data->a = -1;
+	data->b = 0;
 	if (s1)
-		while (s1[++a] != '\0')
-			p[a] = s1[a];
-	p[a] = c;
-	a++;
-	while (s2[b] != '\0')
-		p[a++] = s2[b++];
-	p[a] = '\0';
-	if (k == 90)
+		while (s1[data->a++] != '\0')
+			p[data->a] = s1[data->a];
+	p[data->a] = c;
+	data->a++;
+	while (s2[data->b] != '\0')
+		p[data->a++] = s2[data->b++];
+	p[data->a] = '\0';
+	if (data->k == 90)
 		free(s1);
 	return (p);
 }

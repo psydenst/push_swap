@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:47:10 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/09 18:13:17 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:26:38 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	free_node(t_stack *a)
 	{
 		tmp = a->head;
 		a->head = a->head->next;
-		ft_printf("%i\n", tmp->n);
 		free(tmp);
 	}
 }
@@ -54,7 +53,7 @@ int	main(int argc, char **argv)
 	t_stack	b;
 	t_data	data;
 
-	if (argv == NULL || argc == 1)
+	if (argv == NULL)
 		return (0);
 	if (verification_main(argv, &data) == 0)
 		return (write(1, "Error\n", 6));
@@ -73,7 +72,6 @@ int	main(int argc, char **argv)
 	sort_main(&a, &b, &data);
 	free(data.reference);
 	freeing(data.joker);
-	free(data.joker);
 	free_node(&a);
 	return (0);
 }

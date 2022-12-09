@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:03:28 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/06 18:21:35 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:12:26 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sort_main(t_stack *a, t_stack *b, t_data *data)
 		sort_two(a);
 	if (a1 == 3)
 		sort_three(a);
-	else if (stack_len(a) <= 5)
+	else if (stack_len(a) <= 5 && stack_len(a) > 3)
 		small_sort(a, b);
 	else if (stack_len(a) > 5)
 		radix_sort(a, b, data);

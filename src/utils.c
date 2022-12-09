@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:07:57 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/09 18:13:32 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:26:20 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	freeing(char **joker)
 		free(joker[i]);
 		i++;
 	}
+	free(joker);
 }

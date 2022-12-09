@@ -8,7 +8,8 @@ SRC =	src/main.c \
 	src/radix.c \
 	src/small_sorts.c \
 	src/verification.c \
-	src/utils2.c
+	src/utils2.c \
+	src/exceptions.c
 
 OBJ = ${SRC:.c=.o}
 
