@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:07:57 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/08 20:04:40 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/08 21:15:36 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	freeing(char **joker)
 	i = 0;
 	while (joker[i])
 	{
+		ft_printf("na iteração %i valor: %s\n", i, joker[i]);
 		free(joker[i]);
 		i++;
 	}
