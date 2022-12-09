@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:44:18 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/08 21:30:10 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:15:07 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ static size_t	ft_len(char const *s, char c)
 		else
 		s++;
 	}
-	ft_printf("%i\n", ret);
 	return (ret);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**ret;
 	size_t	len;
@@ -42,7 +41,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	ret = malloc(sizeof(char *) * (ft_len(s, c)));
+	ret = malloc((sizeof(char *)) * (ft_len(s, c) + 1));
 	if (!ret)
 		return (NULL);
 	while (*s)
