@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:59:42 by psydenst          #+#    #+#             */
-/*   Updated: 2022/12/09 20:43:37 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:28:43 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strjoin_c(char *s1, char *s2, int c, t_data *data)
 int	is_ordered(t_stack *a, int *reference)
 {
 	int		i;
-	t_node		*joker;
+	t_node	*joker;
 
 	joker = NULL;
 	joker = a->head;
