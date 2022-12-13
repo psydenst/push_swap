@@ -44,7 +44,7 @@ char	*ft_strjoin_c(char *s1, char *s2, int c, t_data *data)
 int	is_ordered(t_stack *a, int *reference)
 {
 	int		i;
-	t_node	*joker;
+	t_node		*joker;
 
 	joker = NULL;
 	joker = a->head;
@@ -52,7 +52,10 @@ int	is_ordered(t_stack *a, int *reference)
 	while (a->head->n == reference[i])
 	{
 		if (a->head->next == NULL)
+		{
+			a->head = joker;
 			return (1);
+		}
 		i++;
 		a->head = a->head->next;
 	}

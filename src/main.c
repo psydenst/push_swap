@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 	simplifly_numbers(&a, &data);
 	if (is_ordered(&a, data.reference) == 1)
 	{
-		free(data.reference);
+		free_main(&a, &data);
 		return (0);
 	}
 	sort_main(&a, &b, &data);
@@ -74,4 +74,11 @@ int	main(int argc, char **argv)
 	freeing(data.joker);
 	free_node(&a);
 	return (0);
+}
+
+void	free_main(t_stack *a, t_data *data)
+{
+	freeing(data->joker);
+	free_node(a);
+	free(data->reference);
 }

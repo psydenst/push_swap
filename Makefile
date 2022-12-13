@@ -30,7 +30,7 @@ all: $(NAME)
 $(NAME): ${OBJS}
 	make -C ./libft
 	cp libft/libft.a ${NAME}
-	${CC} ${CFLAGS} -g ${INCLUDE} ${LIBFT} ${SRC} -o ${NAME}
+	${CC} ${CFLAGS} ${INCLUDE} ${LIBFT} ${SRC} -o ${NAME}
 
 clean: 
 	make clean -C ./libft

@@ -49,6 +49,7 @@ typedef struct s_stack
 void	populate_stack(t_stack *a, t_data *data);
 void	start_struct(t_stack *a, t_stack *b, int argc, t_data *data);
 void	free_node(t_stack *a);
+void	free_main(t_stack *a, t_data *data);
 
 // UTILS.C
 
@@ -105,7 +106,7 @@ void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
 int		exception(t_stack *a, t_stack *b);
 int		exception_2(t_stack *a);
-int 	exception_3(t_stack *a, t_stack *b);
+int		exception_3(t_stack *a, t_stack *b);
 int		exception_4(t_stack *a, t_stack *b);
 
 // RADIX.C

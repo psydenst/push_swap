@@ -91,6 +91,8 @@ void	radix_sort(t_stack *a, t_stack *b, t_data *data)
 		}
 		radix_sort2(a, b, offset, data);
 		offset++;
+		if (offset == data->bin_houses)
+			return ;
 		if (is_ordered(a, data->reference) && stack_len(b) == 0)
 			return ;
 	}
@@ -109,6 +111,8 @@ void	radix_sort2(t_stack *a, t_stack *b, int i, t_data *data)
 			rotate_b(b);
 		size--;
 	}
+	if (i == data->bin_houses - 1)
+		return ;
 	if (is_ordered(a, data->reference) && stack_len(b) == 0)
 		return ;
 }

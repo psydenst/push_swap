@@ -116,9 +116,11 @@ int	verification_main(char **argv, t_data *data)
 	data->args_count = 0;
 	while (data->joker[data->args_count])
 		data->args_count++;
-	if (ft_is_unique(data->joker) == 0 || ft_min_max(data->joker) == 0)
+	if (ft_is_unique(data->joker) == 0 || ft_min_max(data->joker) == 0
+		|| data->args_count <= 1)
 	{
 		free(str);
+		freeing(data->joker);
 		return (0);
 	}
 	free(str);
